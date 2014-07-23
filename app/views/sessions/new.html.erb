@@ -1,18 +1,19 @@
 <div class="col-xs-4">
-	<h1>Sign Up</h1>
-
-	<form action="/users" method="post">
+	<h1>Sign In</h1>
+	<form action="/session" method="post">
 	
 		<input 
 		type="hidden" 
 		name="authenticity_token" 
 		value="<%= form_authenticity_token %>">
+		
 		<label for="username">Username</label>
 		<input type="text" name="user[username]" value="" id="username">
-		<label for="password">Password</label><input type="password" name="user[password]" value="" id="password">
+		
+		<label for="password">Password</label>
+		<input type="password" name="user[password]" value="" id="password">
 		
 
-		<p><input type="submit" value="Sign Up" class="btn btn-primary"></p>
+		<p><input type="submit" value="Sign In" class="btn btn-primary"></p>
 	</form>
-
 </div>
