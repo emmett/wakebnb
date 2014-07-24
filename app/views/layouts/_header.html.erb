@@ -7,24 +7,17 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
+			<img class="navbar-brand" src="/assets/WAKEbnb-Logo-Small.png">	
 			<a class="navbar-brand" href="#">WakeBnB</a>
+		
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<% if signed_in? %>
-			<%= button_to "Sign out", 
-				session_url, 
-				method: :delete, 
-				class: "btn btn-primary navbar-btn navbar-right" %>
+			<%= button_to "Sign out", session_url, method: :delete, class: "btn btn-primary navbar-btn navbar-right" %>
 			<% else %>
-			<ul>
-				<%= button_to "Log In", 
-					new_session_url, class: 
-					"btn btn-success navbar-btn navbar-right" %>
-				<%= button_to "Sign Up", 
-					new_user_url, 
-					class: "btn btn-primary navbar-btn navbar-right" %>
-			</ul>
+			<button class="btn btn-primary navbar-btn navbar-right" data-toggle="modal" data-target=".login-modal">Log In</button>
+			<button class="btn btn-success navbar-btn navbar-right" data-toggle="modal" data-target=".signup-modal">Sign Up</button>
 			<% end %>
 		</div>
 	</div>
@@ -36,3 +29,71 @@
 	<%= flash[:errors].join("<br>") %>
 </div>
 <% end %>
+
+
+<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">Sign In</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form" action="/session" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<div class="form-group">
+						<input type="text" 
+						class="form-control" 
+						placeholder="Enter Username" 
+						name="user[username]"
+						>
+					</div>
+	
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="Password" name="user[password]">
+					</div>
+					<input type="submit" value="Sign In" class="btn btn-primary">
+				</form>
+			</div>
+				
+		</div>
+	</div>
+</div>
+
+<div class="modal fade signup-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<h4 class="modal-title">Sign Up</h4>
+		</div>
+					
+		<div class="modal-body">
+
+			<form class="form-horizontal" role="form" action="/users" method="post">
+				<input 
+				type="hidden" 
+				name="authenticity_token" 
+				value="<%= form_authenticity_token %>">
+	
+				<div class="form-group">
+					<input type="text" 
+					class="form-control" 
+					placeholder="Enter Username" 
+					name="user[username]"
+					>
+				</div>
+							
+				<div class="form-group">
+					<input type="password" 
+					class="form-control"
+					placeholder="Password" 
+					name="user[password]"
+					>
+				</div>
+				<input type="submit" value="Sign Up" class="btn btn-primary">
+			</form>
+		</div>
+	</div>
+</div>
+	

@@ -1,6 +1,6 @@
 WAKEbnb.Routers.AppRouter = Backbone.Router.extend({
 	routes: {
-		"": "",
+		"": "homePage",
 		"profiles/:id": "profilesShow"
 	},
 	

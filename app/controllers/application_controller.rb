@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 	end
 	
 	def require_login
-		redirect_to new_session_url unless signed_in?
+		redirect_to root_url unless signed_in?
 	end
 
 end
