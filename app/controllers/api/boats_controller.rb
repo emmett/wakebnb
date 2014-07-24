@@ -5,7 +5,6 @@ module Api
 		def index
 			@boats = Boat.all
 			
-			render json: @boats
 		end
 
 		def show
@@ -37,7 +36,10 @@ module Api
 		# DELETE /boats/1
 		# DELETE /boats/1.json
 		def destroy
-   
+			@boat = current_user.boats.find(params[:id])
+			@boat.try(:destroy)
+			
+			render json: {}
 		end
 
 		private

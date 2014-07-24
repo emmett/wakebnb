@@ -1,8 +1,8 @@
 WAKEbnb.Views.BoatsIndex = Backbone.View.extend({
 	template: JST["boats/index"],
 	
-	intialize: function () {
-		this.listenTo(this.collection, "sync", this.render)
+	initialize: function () {
+		this.listenTo(this.collection, 'sync', this.render)
 	},
 	
 	render: function(){
@@ -10,7 +10,6 @@ WAKEbnb.Views.BoatsIndex = Backbone.View.extend({
 			boats: this.collection
 		});
 		
-			debugger
 		this.$el.html(renderedContent);
 		return this;
 	}

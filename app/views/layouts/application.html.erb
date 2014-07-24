@@ -5,7 +5,11 @@
 	<%= stylesheet_link_tag    'application', media: 'all'%>
 	<%= javascript_include_tag 'application' %>
 	<%= csrf_meta_tags %>
-	<script>$(WAKEbnb.initialize);</script>
+	<script>
+		var CURRENT_USER_ID = "<%= current_user.try(:id) %>";
+		$(WAKEbnb.initialize);
+	</script>
+	
 </head>
 <body>
 	<div class="row">

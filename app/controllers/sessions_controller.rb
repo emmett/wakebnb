@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 	
 		if @user
 			sign_in!(@user)
-			redirect_to root_url
+			render json: @user
 		else
 			flash.now[:errors] = ["Invalid credentials please try again"]
 			render :new
@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 	
 	def destroy
 		sign_out!
-		redirect_to root_url
+		render json: @user
 	end
 end

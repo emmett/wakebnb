@@ -6,6 +6,12 @@ WAKEbnb.Routers.AppRouter = Backbone.Router.extend({
 		"boats/:id": "boatShow"
 	},
 	
+	_requireUser: function(){
+		if (!CURRENT_USER_ID){
+			showLogin();
+		}
+	},
+	
 	profilesShow: function(id) {
 		var profile = WAKEbnb.Collections.profiles.getOrFetch(id);
 		
@@ -18,11 +24,20 @@ WAKEbnb.Routers.AppRouter = Backbone.Router.extend({
 	},
 	
 	boatShow: function (id) {
+		var boat = WAKEbnb.Collections.boats.getOrFetch(id);
 		
+		var showView = new WAKEbnb.Views.BoatsShow({
+			model: boat
+		});
+		
+		this._swapView(showView)
 	},
 	
 	boatsNew: function () {
+		this._requireUser()
+		var newView = new WAKEbnb.Views.BoatsNew();
 		
+		this._swapView(newView)
 	},
 	
 	boatsIndex: function() {

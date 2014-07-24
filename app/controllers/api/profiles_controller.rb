@@ -25,5 +25,3 @@ module Api
   end
 end
 
-
-#should only need update not controller

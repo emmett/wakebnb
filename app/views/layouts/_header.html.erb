@@ -13,12 +13,8 @@
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<% if signed_in? %>
-			<%= button_to "Sign out", session_url, method: :delete, class: "btn btn-primary navbar-btn navbar-right" %>
-			<% else %>
-			<button class="btn btn-primary navbar-btn navbar-right" data-toggle="modal" data-target=".login-modal">Log In</button>
-			<button class="btn btn-success navbar-btn navbar-right" data-toggle="modal" data-target=".signup-modal">Sign Up</button>
-			<% end %>
+			<ol id="navbar-buttons">
+			</ol>
 		</div>
 	</div>
 </nav>
@@ -35,7 +31,7 @@
 })</script>
 
 
-<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade login-modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -43,7 +39,7 @@
 				<h4 class="modal-title">Sign In</h4>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" role="form" action="/session" method="post">
+				<form class="form-horizontal" id="signin-form" role="form" action="/session" method="post">
 					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 					<div class="form-group">
 						<input type="text" 
@@ -64,7 +60,7 @@
 	</div>
 </div>
 
-<div class="modal fade signup-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade signup-modal" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-sm">
 	<div class="modal-content">
 		<div class="modal-header">
@@ -74,7 +70,7 @@
 					
 		<div class="modal-body">
 
-			<form class="form-horizontal" role="form" action="/users" method="post">
+			<form class="form-horizontal" role="form" id="signup-form" action="/users" method="post">
 				<input 
 				type="hidden" 
 				name="authenticity_token" 

@@ -22,4 +22,14 @@ p2 = u2.create_profile(
 	review_score: 5
 	)
 	
-b1 = u2.boat.create((title: "Flying Dutchman", description: "Scourge of the highseas", location: "Davey Jones locker", price: "your soul")
+b1 = u1.boats.create(
+	title: "Flying Dutchman",
+	description: "Scourge of the highseas",
+	location: "Davey Jones locker",
+	price: "your soul")
+	
+b2 = u2.boats.create(
+	title: "HMS Victory",
+	description: "Desperate affairs require desperate measures.",
+	location: "Trafalgar",
+	price: "1000")

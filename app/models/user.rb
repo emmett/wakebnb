@@ -17,14 +17,14 @@ class User < ActiveRecord::Base
 	
 	has_one :profile
 	
-	has_many :boat
+	has_many :boats
 	
 	attr_reader :password
 	after_initialize :ensure_session_token
 	
 	def self.find_by_credentials(user_params)
 		user = User.find_by_username(user_params[:username])
-		user.try(:is_password?, user_params[:password])? user :nil 
+		user.try(:is_password?, user_params[:password])? user : nil 
 	end
 	
 	def password=(password)

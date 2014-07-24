@@ -1,18 +1,24 @@
 <h1>Index</h1>
 <div>
 	<% boats.each(function (boat) { %>
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<a class="panel-title" href="#/boards/<%= boat.escape('id') %>">
-					<%= boat.escape('title') %>
-				</a>
+		
+		<div class="container boat-profile">
+			<div class="row">
+				<div class="col-sm-2 col-md-2">
+					<img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+					<div class="price"><i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i></div>
+				</div>
+				<div class="col-sm-4 col-md-4" ">
+					<blockquote>
+						<p><%= boat.escape('title') %></p> <small><cite title="Source Title"><%= boat.escape('location') %>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+					</blockquote>
+					<p> <i class="glyphicon glyphicon-envelope"></i> <%= boat.escape('username') %>
+						<br/>  	
+						<%= boat.escape('description') %>
+						<br/> Added: <%= boat.escape('created_at') %></p>
+				</div>
 			</div>
-			<div class="panel-body">
-				<%= boat.escape('location') %>
-				<%= boat.escape('description') %>
-				<%= boat.escape('price') %>
-			</div>
-		</div>	
+		</div>
+		
 	<% }); %>
 </div>
-
