@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: { message: "Password can't be blank" }
   validates :password, length: { minimum: 6, allow_nil: true }
 	
+	has_one :profile
+	
 	attr_reader :password
 	after_initialize :ensure_session_token
 	
@@ -42,3 +44,6 @@ class User < ActiveRecord::Base
 		self.session ||= SecureRandom.urlsafe_base64(16)
 	end
 end
+
+
+#after_save create profile

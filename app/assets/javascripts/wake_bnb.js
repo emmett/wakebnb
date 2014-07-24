@@ -4,9 +4,8 @@ window.WAKEbnb = {
   Views: {},
   Routers: {},
   initialize: function() {
+		
+		new WAKEbnb.Routers.AppRouter();
+		Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  WAKEbnb.initialize();
-});
