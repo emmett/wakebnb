@@ -1,0 +1,18 @@
+<h1>Index</h1>
+<div>
+	<% boats.each(function (boat) { %>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<a class="panel-title" href="#/boards/<%= boat.escape('id') %>">
+					<%= boat.escape('title') %>
+				</a>
+			</div>
+			<div class="panel-body">
+				<%= boat.escape('location') %>
+				<%= boat.escape('description') %>
+				<%= boat.escape('price') %>
+			</div>
+		</div>	
+	<% }); %>
+</div>
+

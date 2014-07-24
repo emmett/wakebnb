@@ -8,7 +8,7 @@
 
 
 u1 = User.create(username: 'BlackBeard', password: 'password')
-u2 = User.create(username: 'horation_nelson', password: 'password')
+u2 = User.create(username: 'horatio_nelson', password: 'password')
 
 p1 = u1.create_profile(
 	bio: "Hi this is my profile",
@@ -21,3 +21,5 @@ p2 = u2.create_profile(
 	location: "94901",
 	review_score: 5
 	)
+	
+b1 = u2.boat.create((title: "Flying Dutchman", description: "Scourge of the highseas", location: "Davey Jones locker", price: "your soul")

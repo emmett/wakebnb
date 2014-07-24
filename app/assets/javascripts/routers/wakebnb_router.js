@@ -1,7 +1,9 @@
 WAKEbnb.Routers.AppRouter = Backbone.Router.extend({
 	routes: {
-		"": "homePage",
-		"profiles/:id": "profilesShow"
+		"": "boatsIndex",
+		"profiles/:id": "profilesShow",
+		"boats/new": "boatsNew",
+		"boats/:id": "boatShow"
 	},
 	
 	profilesShow: function(id) {
@@ -13,6 +15,24 @@ WAKEbnb.Routers.AppRouter = Backbone.Router.extend({
 		
 		this._swapView(showView)
 		
+	},
+	
+	boatShow: function (id) {
+		
+	},
+	
+	boatsNew: function () {
+		
+	},
+	
+	boatsIndex: function() {
+		WAKEbnb.Collections.boats.fetch();
+		
+		var boatIndex = new WAKEbnb.Views.BoatsIndex({
+			collection: WAKEbnb.Collections.boats
+		})
+		
+		this._swapView(boatIndex)
 	},
 	
 
