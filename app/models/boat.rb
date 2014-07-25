@@ -14,4 +14,15 @@
 
 class Boat < ActiveRecord::Base
 	belongs_to :user
+	
+	has_attached_file :boat_photo, :styles => {
+		:big => "350x400>"
+		:small => "100x150"
+	}
+	
+	validates_attachment_content_type(
+		:boat_photo,
+		:content_type => /\Aimage\/.*\Z/ 
+	)
+	
 end

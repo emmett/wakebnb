@@ -78,7 +78,9 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: WAKEbnb_production
-  
+# production:
+#   <<: *default
+#   database: WAKEbnb_production
+# 	username: WAKEbnb
+# 	password: <%= ENV['WAKEbnb_DATABASE_PASSWORD'] %> 
+#   

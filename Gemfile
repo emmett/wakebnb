@@ -16,11 +16,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor'
+gem 'figaro'
+gem 'paperclip', '~> 4.1'
+gem 'aws-sdk'
+
 
 group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-  gem 'debugger'
 end

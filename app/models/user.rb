@@ -19,6 +19,16 @@ class User < ActiveRecord::Base
 	
 	has_many :boats
 	
+	has_attached_file :profile_photo, :styles => {
+		:big => "100x150"
+		:small => "90x90#"
+	}
+	
+	validates_attachment_content_type(
+		:profile_photo,
+		:content_type => /\Aimage\/.*\Z/ 
+	)
+	
 	attr_reader :password
 	after_initialize :ensure_session_token
 	
