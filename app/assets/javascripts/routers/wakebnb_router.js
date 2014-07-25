@@ -23,7 +23,7 @@ WAKEbnb.Routers.AppRouter = Backbone.Router.extend({
 		
 	},
 	
-	boatShow: function (id) {
+	boatShow: function(id) {
 		var boat = WAKEbnb.Collections.boats.getOrFetch(id);
 		
 		var showView = new WAKEbnb.Views.BoatsShow({
@@ -33,8 +33,8 @@ WAKEbnb.Routers.AppRouter = Backbone.Router.extend({
 		this._swapView(showView)
 	},
 	
-	boatsNew: function () {
-		this._requireUser()
+	boatsNew: function() {
+		this._requireUser();
 		var newView = new WAKEbnb.Views.BoatsNew();
 		
 		this._swapView(newView)

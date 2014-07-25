@@ -19,7 +19,7 @@ module Api
 
 	
 		def create
-			@boat = current_user.boat.new(boat_params)
+			@boat = current_user.boats.new(boat_params)
 		
 			if @boat.save
 				render json: @boat

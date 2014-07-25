@@ -4,6 +4,8 @@ $(function(){
 		$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="signup-btn">Sign Up</button>')
 	} else {
 		$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
+		$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat">Add a Boat</button>')
+		
 	}
 			
 	$('#signin-form').on('submit', function(event){
@@ -16,6 +18,7 @@ $(function(){
 			success: function(data){
 				CURRENT_USER_ID = data.id;	
 				$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
+				$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat">Add a Boat</button>')
 				hideLogin();
 			}
 		})
@@ -30,7 +33,8 @@ $(function(){
 			data: formData, 
 			success: function(data){
 				CURRENT_USER_ID = data.id;
-					$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
+				$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
+				$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat">Add a Boat</button>')	
 				hideSignup();		
 			}
 		})
@@ -47,6 +51,10 @@ $(function(){
 				$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="signup-btn">Sign Up</button>')
 			}
 		})
+	})
+	
+	$('#navbar-buttons').on('click', '#new-boat', function(){ 
+		Backbone.history.navigate("/boats/new", { trigger: true })
 	})
 	
 	$('#navbar-buttons').on('click', '#login-btn', function(){ showLogin() })

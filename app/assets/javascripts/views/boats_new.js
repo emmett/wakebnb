@@ -21,7 +21,7 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 		newBoat.save({}, {
 			success: function (){
 				WAKEbnb.Collections.boats.add(newBoat);
-				Backbone.history.navigate("/boards/" + newBoard.escape('id'), 
+				Backbone.history.navigate("/boats/" + newBoat.escape('id'), 
 				{ trigger: true });
 			}
 		});
