@@ -38,7 +38,7 @@
 				<h4 class="modal-title">Sign In</h4>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" id="signin-form" role="form" action="/session" method="post">
+				<form class="form" id="signin-form" role="form" action="/session" method="post">
 					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 					<div class="form-group">
 						<input type="text" 
@@ -69,7 +69,7 @@
 					
 			<div class="modal-body">
 
-				<form class="form-horizontal" role="form" id="signup-form" action="/users" method="post">
+				<form class="form" role="form" id="signup-form" action="/users" method="post">
 					<input 
 					type="hidden" 
 					name="authenticity_token" 

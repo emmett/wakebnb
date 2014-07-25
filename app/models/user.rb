@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
 	has_one :profile
 	
 	has_many :boats
+	has_many :reservations
+	has_many :reservation_requests, through: :boats, source: :reservations
 	
 	has_attached_file :profile_photo, :styles => {
 		:big => "100x150",

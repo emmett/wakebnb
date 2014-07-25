@@ -18,6 +18,7 @@
 
 class Boat < ActiveRecord::Base
 	belongs_to :user
+	has_many :reservations
 	
 	if Rails.env.production?
 		has_attached_file :boat_photo, styles: { big: "100x100>" }

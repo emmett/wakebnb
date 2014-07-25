@@ -13,7 +13,6 @@ module Api
 		
 		def index
 			@boats = Boat.all
-			
 		end
 
 		def show
