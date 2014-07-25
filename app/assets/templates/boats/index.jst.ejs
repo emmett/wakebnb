@@ -10,7 +10,7 @@
 					<div class="price">
 						<i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i>
 					</div>
-				<button class="btn btn-success" id="reserve-btn"><span class="glyphicon glyphicon-calendar"></span>Reserve Me</button>
+				<a href="#/boats/<%= boat.escape('id')%>" class="btn btn-success" id="reserve-btn"><span class="glyphicon glyphicon-calendar"></span>Reserve Me</a>
 				</div>
 				<div class="col-sm-4 col-md-4" ">
 					<blockquote>

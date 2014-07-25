@@ -19,7 +19,7 @@ gem 'figaro'
 gem 'paperclip', '~> 4.1'
 gem 'aws-sdk'
 gem 'cocaine'
-
+gem 'bookable', '~>0.0.4'
 
 group :development do
   gem 'annotate'
