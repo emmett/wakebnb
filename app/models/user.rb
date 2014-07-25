@@ -2,12 +2,16 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string(255)      not null
-#  password_digest :string(255)      not null
-#  session         :string(255)
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id                         :integer          not null, primary key
+#  username                   :string(255)      not null
+#  password_digest            :string(255)      not null
+#  session                    :string(255)
+#  created_at                 :datetime
+#  updated_at                 :datetime
+#  profile_photo_file_name    :string(255)
+#  profile_photo_content_type :string(255)
+#  profile_photo_file_size    :integer
+#  profile_photo_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
@@ -20,7 +24,7 @@ class User < ActiveRecord::Base
 	has_many :boats
 	
 	has_attached_file :profile_photo, :styles => {
-		:big => "100x150"
+		:big => "100x150",
 		:small => "90x90#"
 	}
 	

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 	
 	private
   def user_params
-    params.require(:user).permit(:username, :password, :session)
+    params.require(:user).permit(:username, :password, :session, :profile_photo)
   end
 	
 	def current_user

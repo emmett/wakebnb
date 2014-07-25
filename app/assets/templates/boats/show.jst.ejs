@@ -1,14 +1,20 @@
- 
-<div class="panel panel-default">
-	<h3 class="panel-heading"><%= boat.escape('title') %></h3>
-	<div class="panel-body">
-		<div class="col-xs-2">
-			<i src="http://placehold.it/350x150"></i>
-			<i class="glyphicon glyphicon-envelope"></i><%= boat.escape('username') %>
-		</div>       
-		<div class="col-xs-4">
-			<%= boat.escape('description') %>     
-		</div>       
-		             
-	</div>         
-</div>                      
+<div class="container boat-profile">
+	<div class="row">
+		<div class="col-sm-2 col-md-2">
+					
+			<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
+			<div class="price"><i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i></div>
+		</div>
+		<button class="btn btn-success" id="reserve-btn"><span class="glyphicon glyphicon-calendar"></span>Reserve Me</button>
+		<div class="col-sm-4 col-md-4" ">
+			<blockquote>
+				<p><%= boat.escape('title') %></p> <small><cite title="Source Title"><%= boat.escape('location') %>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+			</blockquote>
+			<p> <i class="glyphicon glyphicon-envelope"></i> <%= boat.escape('username') %>
+				<br/>  	
+				<%= boat.escape('description') %>
+				<br/> Added: <%= boat.escape('created_at') %></p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -11,19 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724173128) do
+ActiveRecord::Schema.define(version: 20140725165557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "boats", force: true do |t|
-    t.integer  "user_id",                                     null: false
-    t.string   "title",                                       null: false
-    t.text     "description", default: "Write a description"
-    t.string   "location",                                    null: false
-    t.string   "price",                                       null: false
+    t.integer  "user_id",                                                 null: false
+    t.string   "title",                                                   null: false
+    t.text     "description",             default: "Write a description"
+    t.string   "location",                                                null: false
+    t.string   "price",                                                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "boat_photo_file_name"
+    t.string   "boat_photo_content_type"
+    t.integer  "boat_photo_file_size"
+    t.datetime "boat_photo_updated_at"
   end
 
   add_index "boats", ["location"], name: "index_boats_on_location", using: :btree
@@ -45,11 +49,15 @@ ActiveRecord::Schema.define(version: 20140724173128) do
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
+    t.string   "username",                   null: false
+    t.string   "password_digest",            null: false
     t.string   "session"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_photo_file_name"
+    t.string   "profile_photo_content_type"
+    t.integer  "profile_photo_file_size"
+    t.datetime "profile_photo_updated_at"
   end
 
   add_index "users", ["session"], name: "index_users_on_session", using: :btree

@@ -35,7 +35,9 @@ WAKEbnb.Routers.AppRouter = Backbone.Router.extend({
 	
 	boatsNew: function() {
 		this._requireUser();
-		var newView = new WAKEbnb.Views.BoatsNew();
+		var newView = new WAKEbnb.Views.BoatsNew({
+			model: new WAKEbnb.Models.Boat()
+		});
 		
 		this._swapView(newView)
 	},

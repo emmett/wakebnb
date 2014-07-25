@@ -13,12 +13,12 @@ gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'spring', group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor'
 gem 'figaro'
 gem 'paperclip', '~> 4.1'
 gem 'aws-sdk'
+gem 'cocaine'
 
 
 group :development do

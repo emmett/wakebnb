@@ -2,6 +2,15 @@ module Api
 	class BoatsController < ApiController
 		before_action :set_boat, only: [:show, :edit, :update, :destroy]
 	
+		wrap_parameters :boat, include: [
+			:user_id, 
+			:title, 
+			:description, 
+			:location, 
+			:boat_photo, 
+			:price
+		]
+		
 		def index
 			@boats = Boat.all
 			
@@ -50,7 +59,14 @@ module Api
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def boat_params
-			params.require(:boat).permit(:user_id, :title, :description, :location, :price)
+			params.require(:boat).permit(
+				:user_id, 
+				:title, 
+				:description, 
+				:location, 
+				:boat_photo, 
+				:price
+			)
 		end
 	end
 end
