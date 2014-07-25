@@ -17,8 +17,8 @@ gem 'spring', group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor'
 gem 'figaro'
-# gem 'paperclip', '~> 4.1'
-# gem 'aws-sdk'
+gem 'paperclip', '~> 4.1'
+gem 'aws-sdk'
 
 
 group :development do
@@ -26,5 +26,4 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-  gem 'debugger'
 end
