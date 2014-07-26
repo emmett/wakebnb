@@ -1,13 +1,5 @@
 WAKEbnb.Views.BoatsIndex = Backbone.View.extend({
 	template: JST["boats/index"],
-	// events: {
-// 		"click button#reserve-btn": 'boatReserve'
-// 	},
-	
-	boatReserve: function(event){
-		event.preventDefault();
-		console.log($(event.parent))
-	},
 	
 	initialize: function () {
 		this.listenTo(this.collection, 'sync', this.render)
