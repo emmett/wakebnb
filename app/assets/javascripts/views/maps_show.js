@@ -12,7 +12,9 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 			geocoder = new google.maps.Geocoder()
 			var latlng = new google.maps.LatLng(39.127, -119.8);
 			var mapOptions = {
-				zoom: 11,
+				minzoom: 8,
+				maxzoom: 9,
+				zoom: 8,
 				center: latlng,
 				disableDefaultUI: true
 			}
@@ -27,7 +29,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		var address = document.getElementById('address').value;
 		geocoder.geocode( { 'address': address}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
-				map.setCenter(results[0].geometry.location);
+				map.setCenter(results[0].geometry.location); // need to offset
 				var marker = new google.maps.Marker({
 					map: map,
 					position: results[0].geometry.location
