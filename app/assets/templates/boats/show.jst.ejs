@@ -1,69 +1,60 @@
 <div class="container boats">
-	<div class="row">
-		<div class="col-xs-6 col-md-3">
-			<a href="#" class="thumbnail">
-				<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
-			</a>
-		</div>
-			
-		<div class="price"><i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i></div>
+<div class="row">
+	<div class="col-xs-6 col-md-3">
+		<a href="#" class="thumbnail">
+			<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
+		</a>
 	</div>
 		
-	<div class="col-sm-4 col-md-4" ">
-		<blockquote>
-			<p><%= boat.escape('title') %></p> <small><cite title="Source Title"><%= boat.escape('location') %>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
-		</blockquote>
-		<p> <i class="glyphicon glyphicon-envelope"></i> <%= boat.escape('username') %>
-			<br/>  	
-			<%= boat.escape('description') %>
-			<br/> Added: <%= boat.escape('created_at') %></p>
-		</div>
-		
-		<div class="col-xs-12">
-			<div class="input-group input-daterange"> 
-				<input type="text" class="input-sm form-control" id="start" placeholder="Start Date"> 
-				<span class="input-group-addon">to</span> 
-				<input type="text" class="input-sm form-control" id="end" placeholder="End Date">
-				<span class="input-group-btn">
-					<button class="btn btn-default input-sm" type="button" id="reserve-btn">Reserve Me!</button>
-				</span> 
-			</div> 
-		</div>
+	<div class="price"><i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i></div>
+</div>
+	
+<div class="col-sm-4 col-md-4" ">
+	<blockquote>
+		<p><%= boat.escape('title') %></p> <small><cite title="Source Title"><%= boat.escape('location') %>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+	</blockquote>
+	<p> <i class="glyphicon glyphicon-envelope"></i> <%= boat.escape('username') %>
+		<br/>  	
+		<%= boat.escape('description') %>
+		<br/> Added: <%= boat.escape('created_at') %></p>
 	</div>
-
-
-
-
-	<script>
-
-		$('.input-daterange').datepicker({ 
-			todayBtn: "linked", 
-			keyboardNavigation: false, 
-			startDate: "today",
-			beforeShowDay: function (date){
-				
-				if (date.getMonth() == (new Date()).getMonth())
-				switch (date.getDate()){
-					case 4:
-					return {
-						tooltip: 'Example tooltip',
-						classes: 'active'
-					};
-				}
-			}  
-		}); 
 	
+	<div class="col-xs-12">
+		<div class="input-group input-daterange"> 
+			<input type="text" class="input-sm form-control" id="start" placeholder="Start Date"> 
+			<span class="input-group-addon">to</span> 
+			<input type="text" class="input-sm form-control" id="end" placeholder="End Date">
+			<span class="input-group-btn">
+				<button class="btn btn-default input-sm" type="button" id="reserve-btn">Reserve Me!</button>
+			</span> 
+		</div> 
+	</div>
+</div>
+
+
+
+
+<script>
+	var unavailable = [new Date("7/28/2014"),new Date("7/29/2014"),new Date("7/31/2014")];		    
 	
+	unavailable = unavailable.map(function(date){return date.getTime()})
 	
-		$('#start') 
-		.on('changeDate', function(e){ 
-			$('#end').datepicker('setStartDate', e.date); 
-		}); 
+	$('.input-daterange').datepicker({ 
+		todayBtn: "linked", 
+		keyboardNavigation: false, 
+		startDate: "today",
+		beforeShowDay: function (date){ return ($.inArray(date.getTime(), unavailable) < 0) } 
+	});
+
+
+
+	$('#start').on('changeDate', function(e){ 
+		$('#end').datepicker('setStartDate', e.date); 
+	}); 
+
+	$('#end').on('changeDate', function(e){ 
+		$('#start').datepicker('setEndDate', e.date); 
+	}); 
+
 	
-		$('#end') 
-		.on('changeDate', function(e){ 
-			$('#start').datepicker('setEndDate', e.date); 
-		}); 
-		
-		
-	</script>
+</script>

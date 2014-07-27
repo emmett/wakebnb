@@ -1,4 +1,4 @@
-WAKEbnb.Views.BoatsIndex = Backbone.View.extend({
+WAKEbnb.Views.BoatsIndex = Backbone.CompositeView.extend({
 	template: JST["boats/index"],
 	
 	initialize: function () {
@@ -10,7 +10,13 @@ WAKEbnb.Views.BoatsIndex = Backbone.View.extend({
 			boats: this.collection
 		});
 		
+		var mapView = new WAKEbnb.Views.MapShow();
+		this.$('#map-canvas').html(mapView.render().$el)
+		
 		this.$el.html(renderedContent);
 		return this;
 	}
+	
+	
+	
 });

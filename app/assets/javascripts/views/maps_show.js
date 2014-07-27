@@ -1,4 +1,4 @@
-WAKEbnb.Views.Map = Backbone.Views.extend({
+WAKEbnb.Views.MapShow = Backbone.View.extend({
 	template: JST["maps/show"],
 	
 	events: {
