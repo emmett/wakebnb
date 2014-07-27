@@ -22,7 +22,7 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 			console.log(start);
 			console.log(end);
 			console.log(this.model)
-			
+			console.log(this.model.reservations())
 			var formData = $(event.currentTarget).serializeJSON();
 		}
 	},

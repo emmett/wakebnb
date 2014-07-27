@@ -1,8 +1,11 @@
-<div class="container boat-profile">
+<div class="container boats">
 	<div class="row">
-		<div class="col-sm-2 col-md-2">
-					
-			<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
+		<div class="col-xs-6 col-md-3">
+		    <a href="#" class="thumbnail">
+		      <img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
+		    </a>
+		  </div>
+			
 			<div class="price"><i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i></div>
 		</div>
 		
@@ -16,19 +19,18 @@
 				<br/> Added: <%= boat.escape('created_at') %></p>
 			</div>
 		</div>
+	<div class="col-xs-12">
+		<div class="input-group input-daterange"> 
+			<input type="text" class="input-sm form-control" id="start" /> 
+			<span class="input-group-addon">to</span> 
+			<input type="text" class="input-sm form-control" id="end" />
+			<span class="input-group-btn">
+				<button class="btn btn-default input-sm" type="button" id="reserve-btn">Reserve Me!</button>
+			</span> 
+		</div> 
 	</div>
 </div>
 
-<div class="col-md-4">
-	<div class="input-group input-daterange"> 
-		<input type="text" class="input-sm form-control" id="start" /> 
-		<span class="input-group-addon">to</span> 
-		<input type="text" class="input-sm form-control" id="end" />
-		<span class="input-group-btn">
-			<button class="btn btn-default input-sm" type="button" id="reserve-btn">Reserve Me!</button>
-		</span> 
-	</div> 
-</div>
 
 
 
@@ -55,6 +57,7 @@
 			}
 		}  
 	}); 
+	
 	$('#end').datepicker({ 
 		todayBtn: "linked", 
 		keyboardNavigation: false, 
@@ -80,6 +83,7 @@
 	.on('changeDate', function(e){ 
 		$('#end').datepicker('setStartDate', e.date); 
 	}); 
+	
 	$('#end') 
 	.on('changeDate', function(e){ 
 		$('#start').datepicker('setEndDate', e.date); 

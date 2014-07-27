@@ -1,4 +1,4 @@
-WAKEbnb.collections.Reservations = Backbone.Collection.extend({
+WAKEbnb.Collections.Reservations = Backbone.Collection.extend({
 	model: WAKEbnb.Models.Reservation,
 	
 	url: "/api/reservations",
@@ -17,4 +17,4 @@ WAKEbnb.collections.Reservations = Backbone.Collection.extend({
 		
 		return reservation;
 	}
-})
+});
