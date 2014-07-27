@@ -6,15 +6,17 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 	},
 	
 	initialize: function(){
+		$( "#panel" ).on( "click", "#address-btn", codeAddress)
+		
 		var map;
 		var geocoder;
 		function initialize(){
 			geocoder = new google.maps.Geocoder()
 			var latlng = new google.maps.LatLng(39.127, -119.8);
 			var mapOptions = {
-				minzoom: 8,
-				maxzoom: 9,
-				zoom: 8,
+				minzoom: 11,
+				maxzoom: 11,
+				zoom: 11,
 				center: latlng,
 				disableDefaultUI: true
 			}
@@ -22,22 +24,23 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		
 		}
 		
-		google.maps.event.addDomListener(window, 'load', initialize);
-	},
 	
-	codeAddress: function() {
-		var address = document.getElementById('address').value;
-		geocoder.geocode( { 'address': address}, function(results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
-				map.setCenter(results[0].geometry.location); // need to offset
-				var marker = new google.maps.Marker({
-					map: map,
-					position: results[0].geometry.location
-				});
-			} else {
-				alert('Geocode was not successful for the following reason: ' + status);
-			}
-		});
+		function codeAddress() {
+			var address = $('#address').val();
+			geocoder.geocode( { 'address': address}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					results[0].geometry.location.B += .2
+					map.setCenter(results[0].geometry.location); // need to offset
+					var marker = new google.maps.Marker({
+						map: map,
+						position: results[0].geometry.location
+					});
+				} else {
+					alert('Geocode was not successful for the following reason: ' + status);
+				}
+			});
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
 	},
 	
 	render: function() {
