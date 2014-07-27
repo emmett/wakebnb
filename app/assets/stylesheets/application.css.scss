@@ -26,8 +26,22 @@
 	overflow: hidden;
 }
 
+#backdrop {
+	padding-top: 50px;
+	padding-left: 0;
+	padding-right: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
 .navbar-btn {
 	display: inline;
+}
+
+#panel{
+	float: left;
+	top: 0;
 }
 
 #map-canvas{
@@ -58,4 +72,12 @@
 	box-shadow: 6px 0px 5px -5px, -6px 0px 5px -5px;
 	
 	height: 100%;
+}
+
+
+#map-canvas { 
+	padding-left: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }

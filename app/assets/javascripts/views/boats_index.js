@@ -11,6 +11,7 @@ WAKEbnb.Views.BoatsIndex = Backbone.CompositeView.extend({
 		});
 		
 		var mapView = new WAKEbnb.Views.MapShow();
+		
 		this.$('#map-canvas').html(mapView.render().$el)
 		
 		this.$el.html(renderedContent);
