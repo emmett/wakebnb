@@ -14,16 +14,26 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 	reserveBoat: function(event){
 		event.preventDefault();
 		this._requireUser();
+		var view = this;
 		
 		if(CURRENT_USER_ID){
-			var start = Date.parse($('#start').val());
-			var end = Date.parse($('#end').val());
+			var start = $('#start').val();
+			var end = $('#end').val();
+
+			var reservation = new WAKEbnb.Models.Reservation({
+				boat_id: this.model.id,
+				start_date: new Date(start), 
+				end_date: new Date(end), 
+				user_id: parseInt(CURRENT_USER_ID),
+				status: "NEW"
+			});
 			
-			console.log(start);
-			console.log(end);
-			console.log(this.model)
-			console.log(this.model.reservations())
-			var formData = $(event.currentTarget).serializeJSON();
+			reservation.save({}, {
+				success: function() {
+					view.model.reservations().add(reservation)
+					view.render();
+				}
+			})
 		}
 	},
 	

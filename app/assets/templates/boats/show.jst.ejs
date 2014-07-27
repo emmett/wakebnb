@@ -1,93 +1,91 @@
 <div class="container boats">
 	<div class="row">
 		<div class="col-xs-6 col-md-3">
-		    <a href="#" class="thumbnail">
-		      <img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
-		    </a>
-		  </div>
+			<a href="#" class="thumbnail">
+				<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
+			</a>
+		</div>
 			
-			<div class="price"><i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i></div>
-		</div>
-		
-		<div class="col-sm-4 col-md-4" ">
-			<blockquote>
-				<p><%= boat.escape('title') %></p> <small><cite title="Source Title"><%= boat.escape('location') %>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
-			</blockquote>
-			<p> <i class="glyphicon glyphicon-envelope"></i> <%= boat.escape('username') %>
-				<br/>  	
-				<%= boat.escape('description') %>
-				<br/> Added: <%= boat.escape('created_at') %></p>
-			</div>
-		</div>
-	<div class="col-xs-12">
-		<div class="input-group input-daterange"> 
-			<input type="text" class="input-sm form-control" id="start" /> 
-			<span class="input-group-addon">to</span> 
-			<input type="text" class="input-sm form-control" id="end" />
-			<span class="input-group-btn">
-				<button class="btn btn-default input-sm" type="button" id="reserve-btn">Reserve Me!</button>
-			</span> 
-		</div> 
+		<div class="price"><i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i></div>
 	</div>
-</div>
+		
+	<div class="col-sm-4 col-md-4" ">
+		<blockquote>
+			<p><%= boat.escape('title') %></p> <small><cite title="Source Title"><%= boat.escape('location') %>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+		</blockquote>
+		<p> <i class="glyphicon glyphicon-envelope"></i> <%= boat.escape('username') %>
+			<br/>  	
+			<%= boat.escape('description') %>
+			<br/> Added: <%= boat.escape('created_at') %></p>
+		</div>
+		<div class="col-xs-12">
+			<div class="input-group input-daterange"> 
+				<input type="text" class="input-sm form-control" id="start" /> 
+				<span class="input-group-addon">to</span> 
+				<input type="text" class="input-sm form-control" id="end" />
+				<span class="input-group-btn">
+					<button class="btn btn-default input-sm" type="button" id="reserve-btn">Reserve Me!</button>
+				</span> 
+			</div> 
+		</div>
+	</div>
 
 
 
 
-<script>
+	<script>
 
-	$('#start').datepicker({ 
-		todayBtn: "linked", 
-		keyboardNavigation: false, 
-		todayHighlight: true,
-		startDate: "today",
-		beforeShowDay: function (date){
+		$('#start').datepicker({ 
+			todayBtn: "linked", 
+			keyboardNavigation: false, 
+			startDate: "today",
+			beforeShowDay: function (date){
 				
-			if (date.getMonth() == (new Date()).getMonth())
-			switch (date.getDate()){
-				case 4:
-				return {
-					tooltip: 'Example tooltip',
-					classes: 'active'
-				};
-				case 8:
-				return false;
-				case 12:
-				return "green";
-			}
-		}  
-	}); 
+				if (date.getMonth() == (new Date()).getMonth())
+				switch (date.getDate()){
+					case 4:
+					return {
+						tooltip: 'Example tooltip',
+						classes: 'active'
+					};
+					case 8:
+					return false;
+					case 12:
+					return "green";
+				}
+			}  
+		}); 
 	
-	$('#end').datepicker({ 
-		todayBtn: "linked", 
-		keyboardNavigation: false, 
-		todayHighlight: true,
-		beforeShowDay: function (date){
+		$('#end').datepicker({ 
+			todayBtn: "linked", 
+			keyboardNavigation: false, 
+			startDate: "today",
+			beforeShowDay: function (date){
 				
-			if (date.getMonth() == (new Date()).getMonth())
-			switch (date.getDate()){
-				case 4:
-				return {
-					tooltip: 'Example tooltip',
-					classes: 'active'
-				};
-				case 8:
-				return false;
-				case 12:
-				return "green";
-			}
-		} 
-	}); 
+				if (date.getMonth() == (new Date()).getMonth())
+				switch (date.getDate()){
+					case 4:
+					return {
+						tooltip: 'Example tooltip',
+						classes: 'active'
+					};
+					case 8:
+					return false;
+					case 12:
+					return "green";
+				}
+			} 
+		}); 
 	
-	$('#start') 
-	.on('changeDate', function(e){ 
-		$('#end').datepicker('setStartDate', e.date); 
-	}); 
+		$('#start') 
+		.on('changeDate', function(e){ 
+			$('#end').datepicker('setStartDate', e.date); 
+		}); 
 	
-	$('#end') 
-	.on('changeDate', function(e){ 
-		$('#start').datepicker('setEndDate', e.date); 
-	}); 
+		$('#end') 
+		.on('changeDate', function(e){ 
+			$('#start').datepicker('setEndDate', e.date); 
+		}); 
 		
 		
-</script>
+	</script>

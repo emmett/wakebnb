@@ -38,7 +38,7 @@ b2 = u2.boats.create(
 	
 r1 = u1.reservations.create(
 	boat_id: 2,
-	start_date: DateTime.new(2014,7,26),
-	end_date: DateTime.new(2014,7,28),
+	start_date: Date.new(2014,7,26),
+	end_date: Date.new(2014,7,28),
 	status: "open"
 	)
