@@ -66,7 +66,6 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 		console.log(unavailable)
 	
 		$('.input-daterange').datepicker({ 
-			todayBtn: "linked", 
 			keyboardNavigation: false, 
 			startDate: "today",
 			beforeShowDay: function (date){ return ($.inArray(date.getTime(), unavailable) < 0) } 
@@ -80,8 +79,7 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 		$('#end').on('changeDate', function(e){ 
 			$('#start').datepicker('setEndDate', e.date); 
 		}); 
-		
-		
+
 	}
 	
 })
