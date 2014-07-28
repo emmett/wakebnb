@@ -35,26 +35,6 @@
 
 
 <script>
-	var unavailable = [new Date("7/28/2014"),new Date("7/29/2014"),new Date("7/31/2014")];		    
-	
-	unavailable = unavailable.map(function(date){return date.getTime()})
-	
-	$('.input-daterange').datepicker({ 
-		todayBtn: "linked", 
-		keyboardNavigation: false, 
-		startDate: "today",
-		beforeShowDay: function (date){ return ($.inArray(date.getTime(), unavailable) < 0) } 
-	});
-
-
-
-	$('#start').on('changeDate', function(e){ 
-		$('#end').datepicker('setStartDate', e.date); 
-	}); 
-
-	$('#end').on('changeDate', function(e){ 
-		$('#start').datepicker('setEndDate', e.date); 
-	}); 
 
 	
 </script>

@@ -1,3 +1,3 @@
 WAKEbnb.Models.Reservation = Backbone.Model.extend({
-	urlRoot: "/api/reservations"
+	url: "/api/reservations"
 })

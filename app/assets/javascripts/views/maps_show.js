@@ -10,6 +10,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		
 		var map;
 		var geocoder;
+		
 		function initialize(){
 			geocoder = new google.maps.Geocoder()
 			var latlng = new google.maps.LatLng(39.127, -119.8);
@@ -21,15 +22,13 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 				disableDefaultUI: true
 			}
 			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-		
 		}
 		
-	
 		function codeAddress() {
 			var address = $('#address').val();
 			geocoder.geocode( { 'address': address}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
-					results[0].geometry.location.B += .2
+					results[0].geometry.location.B += .1
 					map.setCenter(results[0].geometry.location); // need to offset
 					var marker = new google.maps.Marker({
 						map: map,

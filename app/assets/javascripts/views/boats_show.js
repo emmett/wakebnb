@@ -5,7 +5,7 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 		"click #reserve-btn": "reserveBoat"
 	},
 	
-	_requireUser: function(){
+	_requireUser: function() {
 		if (!CURRENT_USER_ID){
 			showLogin();
 		}
@@ -17,9 +17,10 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 		var view = this;
 		
 		if(CURRENT_USER_ID){
+			
 			var start = $('#start').val();
 			var end = $('#end').val();
-
+			debugger
 			var reservation = new WAKEbnb.Models.Reservation({
 				boat_id: this.model.id,
 				start_date: new Date(start), 
@@ -46,8 +47,41 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 			boat: this.model
 		});
 		
+		var mapView = new WAKEbnb.Views.MapShow();
+		
+		this.$('#map-canvas').html(mapView.render().$el)
+		
+		
+		
 		this.$el.html(renderedContent);
 		
+		this.initializeDatePicker();
+		
 		return this;	
+	},
+	
+	initializeDatePicker: function(){
+		
+		var unavailable = this.model.blackout()
+		console.log(unavailable)
+	
+		$('.input-daterange').datepicker({ 
+			todayBtn: "linked", 
+			keyboardNavigation: false, 
+			startDate: "today",
+			beforeShowDay: function (date){ return ($.inArray(date.getTime(), unavailable) < 0) } 
+		});
+		
+		
+		$('#start').on('changeDate', function(e){ 
+			$('#end').datepicker('setStartDate', e.date); 
+		}); 
+		
+		$('#end').on('changeDate', function(e){ 
+			$('#start').datepicker('setEndDate', e.date); 
+		}); 
+		
+		
 	}
+	
 })

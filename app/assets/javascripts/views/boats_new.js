@@ -21,6 +21,10 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 	
 	render: function() {
 		var renderedContent = this.template();
+		
+		var mapView = new WAKEbnb.Views.MapShow();
+		
+		this.$('#map-canvas').html(mapView.render().$el)
 		this.$el.html(renderedContent);
 		
 		return this;
