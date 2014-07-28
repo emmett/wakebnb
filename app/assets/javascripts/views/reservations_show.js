@@ -1,4 +1,5 @@
 WAKEbnb.Views.ReservationShow = Backbone.View.extend({
+	tagName: "tr",
 	template: JST["reservations/show"],
 	
 	initialize: function() {
