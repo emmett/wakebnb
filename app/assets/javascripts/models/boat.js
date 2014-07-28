@@ -25,7 +25,6 @@ WAKEbnb.Models.Boat = Backbone.Model.extend ({
 		});
 		
 		blackoutDates = blackoutDates.map(function(date){
-			
 			return date * (1000 * 60 * 60 * 24)
 		})
 		

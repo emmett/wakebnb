@@ -12,3 +12,4 @@ window.WAKEbnb = {
 		Backbone.history.start();
   }
 };
+ 

@@ -20,13 +20,11 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 			
 			var start = $('#start').val();
 			var end = $('#end').val();
-			debugger
 			var reservation = new WAKEbnb.Models.Reservation({
 				boat_id: this.model.id,
 				start_date: new Date(start), 
 				end_date: new Date(end), 
-				user_id: parseInt(CURRENT_USER_ID),
-				status: "Pending"
+				user_id: parseInt(CURRENT_USER_ID)
 			});
 			
 			reservation.save({}, {

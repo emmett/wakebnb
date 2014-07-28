@@ -6,6 +6,24 @@ WAKEbnb.Views.ReservationRequestShow = Backbone.View.extend({
 		this.listenTo(this.model, "sync remove", this.render);
 	},
 	
+	events: {
+		"click #approve": "approveRequest",
+		"click #reject": "rejectRequest"	
+	},
+	
+	approveRequest: function(event) {
+		console.log(this.model);
+		this.model.set("approved", true);
+		this.model.save();
+	},
+	
+	rejectRequest: function(event) {
+		event.preventDefault();
+		this.model.destroy();
+		this.trigger("remove", this);
+	},
+	
+	
 	render: function (){
 		var renderedContent = this.template({
 			reservation: this.model

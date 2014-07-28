@@ -20,6 +20,7 @@ $(function(){
 				CURRENT_USER_ID = data.id;	
 				$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
 				$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat">Add a Boat</button>')
+				$('#navbar-buttons').append('<button class="btn btn-primary navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-envelope"></span> Requests</button>')
 				hideLogin();
 			}
 		})
@@ -36,6 +37,7 @@ $(function(){
 				CURRENT_USER_ID = data.id;
 				$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
 				$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat">Add a Boat</button>')	
+				$('#navbar-buttons').append('<button class="btn btn-primary navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-envelope"></span> Requests</button>')
 				hideSignup();		
 			}
 		})

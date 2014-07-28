@@ -17,9 +17,19 @@ module Api
 		end
 		
 		def destroy
-			@reservation = current_user.reservations.find(params[:id])
+			@reservation = Reservation.find(params[:id])
 			@reservation.try(:destroy)
 			render json: {}
+		end
+		
+		def update
+			@reservation = current_user.reservation_requests.find(params[:id])
+			
+      if @reservation.update_attributes(update_reservations)
+        render json: @reservation
+      else
+        render json: @reservation.errors.full_messages, status: :unprocessable_entity
+      end
 		end
 
 
@@ -29,7 +39,11 @@ module Api
     private
 
     def reservation_params
-      params.require(:reservation).permit(:boat_id, :start_date, :end_date, :status)
+      params.require(:reservation).permit(:boat_id, :start_date, :end_date, :approved)
     end
+		
+		def update_reservations
+			params.require(:reservation).permit(:approved)
+		end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727035436) do
+ActiveRecord::Schema.define(version: 20140728204421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,18 +49,17 @@ ActiveRecord::Schema.define(version: 20140727035436) do
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", unique: true, using: :btree
 
   create_table "reservations", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "boat_id",    null: false
-    t.date     "start_date", null: false
-    t.date     "end_date",   null: false
-    t.string   "status",     null: false
+    t.integer  "user_id",                    null: false
+    t.integer  "boat_id",                    null: false
+    t.date     "start_date",                 null: false
+    t.date     "end_date",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "approved",   default: false
   end
 
   add_index "reservations", ["boat_id"], name: "index_reservations_on_boat_id", using: :btree
   add_index "reservations", ["start_date"], name: "index_reservations_on_start_date", using: :btree
-  add_index "reservations", ["status"], name: "index_reservations_on_status", using: :btree
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
