@@ -39,5 +39,5 @@ WAKEbnb.Models.Boat = Backbone.Model.extend ({
 		}
 		
 		return payload;
-	}
+	}       
 })

@@ -16,4 +16,7 @@ class Profile < ActiveRecord::Base
 	
 	belongs_to :user
 	
+	has_many :reservations, through: :user, source: :reservations
+	has_many :reservation_requests, through: :user, source: :reservation_requests
+	
 end
