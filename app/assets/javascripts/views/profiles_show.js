@@ -1,6 +1,11 @@
 WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 	template: JST["profiles/show"],
 	
+	_requireUser: function(){
+		if (!CURRENT_USER_ID){
+			showLogin();
+		}
+	},
 
 
 	initialize: function() {
@@ -16,13 +21,20 @@ WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 	
 	
 	render: function() {
-		var renderedContent = this.template({
-			profile: this.model
-		});
+		this._requireUser();
 		
-		this.$el.html(renderedContent);	
-		this.attachSubviews();
+		if (CURRENT_USER_ID == this.model.get('id')) {
+			var renderedContent = this.template({
+				profile: this.model
+			});
+		
+			this.$el.html(renderedContent);	
+			this.attachSubviews();
 	
+		} else {
+			Backbone.history.navigate("", { trigger: true });
+		}
+		
 		return this;
 	},
 	

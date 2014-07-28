@@ -62,7 +62,7 @@ $(function(){
 	
 	$('#navbar-buttons').on('click', '#login-btn', function(){ showLogin() })
 	$('#navbar-buttons').on('click', '#signup-btn', function(){ $('#signup-modal').modal('show')})
-	$('#navbar-buttons').on('click', '#profile', function(){ Backbone.history.navigate("/profiles/"+CURRENT_USER_ID, { trigger: true }) })
+	$('#navbar-buttons').on('click', '#profile', function(){ Backbone.history.navigate("#/profiles/"+CURRENT_USER_ID, { trigger: true }) })
 	
 })
 
