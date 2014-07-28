@@ -42,3 +42,5 @@ r1 = u1.reservations.create(
 	end_date: Date.new(2014,7,28),
 	status: "open"
 	)
+	
+	# File.open('public/images/{filename.jpg})

@@ -6,7 +6,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 	},
 	
 	initialize: function(){
-		$( "#panel" ).on( "click", "#address-btn", codeAddress)
+		$( "#main" ).on( "click", "#address-btn", codeAddress)
 		
 		var map;
 		var geocoder;

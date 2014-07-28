@@ -20,6 +20,10 @@
 .navbar {
 }
 
+.photo{
+
+}
+
 #main {
 	padding-top: 50px;
 	padding-left: 0;
@@ -55,20 +59,24 @@
 	bottom: 0;
 }
 
-.boats {
-	left: 58%;
-	max-width: 40%;
+.boat-profile {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0;
+}
 
+.boats {
+	left: 48%;
+	max-width: 50%;
 	padding-top: 50px;
 	background-color: white;
-
 	position: absolute;
 	overflow-y: auto;
 	overflow-x: hidden;
 	top: 0;
 	bottom: 0;
 	box-shadow: 6px 0px 5px -5px, -6px 0px 5px -5px;
-	
 	height: 100%;
 }
 

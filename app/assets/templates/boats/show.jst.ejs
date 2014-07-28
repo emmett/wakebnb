@@ -1,23 +1,22 @@
 <div class="container boats">
-<div class="row">
-	<div class="col-xs-6 col-md-3">
-		<a href="#" class="thumbnail">
-			<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
-		</a>
-	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<a href="#" class="thumbnail">
+				<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
+			</a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6" ">
+				<p><%= boat.escape('title') %></p> <small><cite title="Source Title"><%= boat.escape('location') %>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+			<p> <i class="glyphicon glyphicon-envelope"></i> <%= boat.escape('username') %>
 		
-	<div class="price"><i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i></div>
-</div>
-	
-<div class="col-sm-4 col-md-4" ">
-	<blockquote>
-		<p><%= boat.escape('title') %></p> <small><cite title="Source Title"><%= boat.escape('location') %>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
-	</blockquote>
-	<p> <i class="glyphicon glyphicon-envelope"></i> <%= boat.escape('username') %>
-		<br/>  	
-		<%= boat.escape('description') %>
-		<br/> Added: <%= boat.escape('created_at') %></p>
 	</div>
+		<div class="price"><i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i></div>
+	
+
+			<br/>  	
+			<%= boat.escape('description') %>
+	
+		</div>
 	
 	<div class="col-xs-12">
 		<div class="input-group input-daterange"> 
@@ -30,11 +29,3 @@
 		</div> 
 	</div>
 </div>
-
-
-
-
-<script>
-
-	
-</script>
