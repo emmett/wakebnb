@@ -4,7 +4,8 @@ $(function(){
 		$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="signup-btn">Sign Up</button>')
 	} else {
 		$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
-		$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat">Add a Boat</button>')
+		$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat"><span class="glyphicon glyphicon-plus"></span> Add a Boat</button>')
+		$('#navbar-buttons').append('<button class="btn btn-primary navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-envelope"></span> Requests</button>')
 		
 	}
 			
@@ -59,6 +60,8 @@ $(function(){
 	
 	$('#navbar-buttons').on('click', '#login-btn', function(){ showLogin() })
 	$('#navbar-buttons').on('click', '#signup-btn', function(){ $('#signup-modal').modal('show')})
+	$('#navbar-buttons').on('click', '#profile', function(){ Backbone.history.navigate("/profiles/"+CURRENT_USER_ID, { trigger: true }) })
+	
 })
 
 var showLogin = function () {

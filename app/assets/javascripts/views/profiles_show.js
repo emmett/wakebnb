@@ -1,5 +1,7 @@
 WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 	template: JST["profiles/show"],
+	
+
 
 	initialize: function() {
 		this.listenTo(this.model, "sync", this.render);
@@ -10,6 +12,8 @@ WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.reservationRequests(), 'add', this.addReservationRequestView)
 		this.model.reservationRequests().each(this.addReservationRequestView.bind(this))
 	},
+	
+	
 	
 	render: function() {
 		var renderedContent = this.template({

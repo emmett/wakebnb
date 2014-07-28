@@ -47,9 +47,6 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 			boat: this.model
 		});
 		
-		var mapView = new WAKEbnb.Views.MapShow();
-		
-		this.$('#map-canvas').html(mapView.render().$el)
 		
 		
 		
@@ -63,7 +60,7 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 	initializeDatePicker: function(){
 		
 		var unavailable = this.model.blackout()
-		console.log(unavailable)
+	
 	
 		$('.input-daterange').datepicker({ 
 			keyboardNavigation: false, 
@@ -79,7 +76,10 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 		$('#end').on('changeDate', function(e){ 
 			$('#start').datepicker('setEndDate', e.date); 
 		}); 
-
+		
+		$('#end').on('clearDate', function(e){ 
+			$('#start').datepicker('setEndDate', null ); 
+		}); 
 	}
 	
 })
