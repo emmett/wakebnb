@@ -1,6 +1,13 @@
-
-<td><%= reservation.escape('start_date') %></td>
-<td><%= reservation.escape('end_date') %></td>
-<td><%= reservation.escape('boat') %></td>
-<td><%= reservation.escape('renter') %></td>
-<td><button class="btn btn-success btn-sm" id="approve"><span class="glyphicon glyphicon-ok" /></button> <button class="btn btn-danger btn-sm" id="reject"><span class="glyphicon glyphicon-remove" /></button></td>
+<% if (reservation.get('approved')) {%>
+	<td><%= reservation.escape('start_date') %></td>
+	<td><%= reservation.escape('end_date') %></td>
+	<td><%= reservation.escape('boat') %></td>
+	<td><%= reservation.escape('renter') %></td>
+	<td>Approved</td>
+<% } else { %>
+	<td><%= reservation.escape('start_date') %></td>
+	<td><%= reservation.escape('end_date') %></td>
+	<td><%= reservation.escape('boat') %></td>
+	<td><%= reservation.escape('renter') %></td>
+	<td><button class="btn btn-success btn-sm" id="approve"><span class="glyphicon glyphicon-ok" /></button> <button class="btn btn-danger btn-sm" id="reject"><span class="glyphicon glyphicon-ban-circle" /></button></td>
+<% } %>

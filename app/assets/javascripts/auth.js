@@ -1,12 +1,8 @@
 $(function(){
 	if (!CURRENT_USER_ID){
-		$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="login-btn">Log In</button>')
-		$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="signup-btn">Sign Up</button>')
+		loggedOutBtns()
 	} else {
-		$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
-		$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat"><span class="glyphicon glyphicon-plus"></span> Add a Boat</button>')
-		$('#navbar-buttons').append('<button class="btn btn-primary navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-envelope"></span> Requests</button>')
-		
+		signedInBtns()
 	}
 			
 	$('#signin-form').on('submit', function(event){
@@ -18,9 +14,7 @@ $(function(){
 			data: formData, 
 			success: function(data){
 				CURRENT_USER_ID = data.id;	
-				$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
-				$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat">Add a Boat</button>')
-				$('#navbar-buttons').append('<button class="btn btn-primary navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-envelope"></span> Requests</button>')
+				signedInBtns();
 				hideLogin();
 			}
 		})
@@ -35,9 +29,7 @@ $(function(){
 			data: formData, 
 			success: function(data){
 				CURRENT_USER_ID = data.id;
-				$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn">Logout</button>')	
-				$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat">Add a Boat</button>')	
-				$('#navbar-buttons').append('<button class="btn btn-primary navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-envelope"></span> Requests</button>')
+				signedInBtns();
 				hideSignup();		
 			}
 		})
@@ -50,8 +42,7 @@ $(function(){
 			type:"delete", 
 			success: function(){
 				CURRENT_USER_ID = "";
-				$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="login-btn">Log In</button>')
-				$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="signup-btn">Sign Up</button>')
+				loggedOutBtns()
 			}
 		})
 	})
@@ -76,4 +67,15 @@ var hideLogin = function () {
 
 var hideSignup = function () {
 	$('#signup-modal').modal('hide')
+}
+
+var signedInBtns = function (){
+	$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn"><span class="glyphicon glyphicon-off"></span></button>')	
+	$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat"><span class="glyphicon glyphicon-plus"></span> Boat</button>')
+	$('#navbar-buttons').append('<button class="btn btn-primary navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-inbox"></span> Requests</button>')
+}
+
+var loggedOutBtns = function (){
+	$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="login-btn">Log In</button>')
+	$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="signup-btn">Sign Up</button>')
 }
