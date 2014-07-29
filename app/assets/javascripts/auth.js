@@ -70,12 +70,13 @@ var hideSignup = function () {
 }
 
 var signedInBtns = function (){
-	$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn"><span class="glyphicon glyphicon-off"></span></button>')	
-	$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat"><span class="glyphicon glyphicon-plus"></span> Boat</button>')
-	$('#navbar-buttons').append('<button class="btn btn-primary navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-inbox"></span> Requests</button>')
+	$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="logout-btn"><span class="glyphicon glyphicon-log-out"></span></button> ')	
+	$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="new-boat"><span class="glyphicon glyphicon-plus"></span> Boat</button> ')
+	$('#navbar-buttons').append('<button class="btn btn-primary navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-inbox"></span> Requests</button> ')
+	$('#navbar-buttons').append('<span class="btn btn-default navbar-btn navbar-right" id="profile"><span class="glyphicon glyphicon-user"></span> ' + CURRENT_USER_NAME+'</button> ')
 }
 
 var loggedOutBtns = function (){
-	$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="login-btn">Log In</button>')
-	$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="signup-btn">Sign Up</button>')
+	$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="login-btn"><span class="glyphicon glyphicon-log-in"></span></button>')
+	$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="signup-btn"><span class="glyphicon glyphicon-edit"></span></button>')
 }

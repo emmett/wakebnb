@@ -23,19 +23,20 @@ WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 	render: function() {
 		this._requireUser();
 		
-		if (CURRENT_USER_ID == this.model.get('id')) {
-			var renderedContent = this.template({
-				profile: this.model
-			});
+		var renderedContent = this.template({
+			profile: this.model
+		});
 		
+		if (CURRENT_USER_ID == this.model.get('id')) {
 			this.$el.html(renderedContent);	
 			this.attachSubviews();
+			return this;
 	
 		} else {
-			Backbone.history.navigate("", { trigger: true });
+			Backbone.history.navigate("#/profiles/"+CURRENT_USER_ID, { trigger: true });
 		}
 		
-		return this;
+		
 	},
 	
 	addReservationView: function (reservation){
