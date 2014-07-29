@@ -26,8 +26,10 @@ b1 = u1.boats.create(
 	title: "Flying Dutchman",
 	description: "Scourge of the highseas",
 	location: "Davey Jones locker",
-	price: "your soul"
+	price: "your soul",
+	boat_photo: File.open('public/seeds/Flying_Dutchman.jpg')
 	)
+	
 	
 b2 = u2.boats.create(
 	title: "HMS Victory",

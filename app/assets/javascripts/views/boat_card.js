@@ -1,9 +1,9 @@
-WAKEbnb.Views.BoatsShow = Backbone.View.extend({
-	tagName: "container boats",
-	template: JST["boats/show"],
+WAKEbnb.Views.BoatsCardShow = Backbone.View.extend({
+	className: "col-lg-4 col-md-6 col-sm-12 container boat-profile",
+	template: JST["boats/card"],
 	
-	events: {
-		"click #reserve-btn": "reserveBoat"
+	attributes: function(){
+		return 		{ "data-id": this.model.id };
 	},
 	
 	_requireUser: function() {
@@ -11,35 +11,7 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 			showLogin();
 		}
 	},
-	
-	reserveBoat: function(event){
-		event.preventDefault();
-		this._requireUser();
-		var view = this;
-		
-		if(CURRENT_USER_ID){
-				
-			var start = $('#start').val();
-			var end = $('#end').val();
-			
-			var unavailable = this.model.blackout();
-			
-			var reservation = new WAKEbnb.Models.Reservation({
-				boat_id: this.model.id,
-				start_date: new Date(start), 
-				end_date: new Date(end), 
-				user_id: parseInt(CURRENT_USER_ID)
-			});
-			
-			reservation.save({}, {
-				success: function() {
-					view.model.reservations().add(reservation)
-					view.render();
-				}
-			})
-		}
-	},
-	
+
 	initialize: function() {
 		this.listenTo(this.model, "sync", this.render);	
 	},

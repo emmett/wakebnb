@@ -1,44 +1,11 @@
-<div class="boats col-md-6">
-	
-	<div class="row">
-		<div class="input-group col-xs-12" id="panel">
-			<input id="address" class="form-control" type="textbox" placeholder="Make Waves">
-			<span class="input-group-btn">
-				<button class="btn btn-default" id="address-btn"><span class="glyphicon glyphicon-search"></span></button>
-			</span>
-		</div>
+<div class="row">
+	<div class="input-group col-xs-12" id="panel">
+		<input id="address" class="form-control" type="textbox" placeholder="Make Waves">
+		<span class="input-group-btn">
+			<button class="btn btn-default" id="address-btn"><span class="glyphicon glyphicon-search"></span></button>
+		</span>
 	</div>
-
-	<% boats.each(function (boat) { %>
-		
-		<div class="col-lg-4 col-md-6 col-sm-12 container boat-profile">
-			<div class="photo">
-				<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-rounded img-responsive" />
-			</div>
-				
-				<div class="col-lg-12 col-md-12">
-					<h4><%= boat.escape('title') %></h4>	
-				</div>
-				
-				
-				<div class="price col-lg-6">
-					<i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i>
-					<i class="glyphicon glyphicon-envelope"> <%= boat.escape('username') %></i>
-					<a href="#/boats/<%= boat.escape('id')%>" class="btn btn-success" id="reserve-btn"><span class="glyphicon glyphicon-calendar"></span>Reserve Me</a>
-				</div>
-			
-		
-		<div class="col-xs-12">
-			<%= boat.escape('description') %>
-		</div>
-	</div>
-	
- 
-	    
-	<% }); %>
-</div>
 </div>
 
-
-
-		
+<div class='boats-list'>
+</div>
