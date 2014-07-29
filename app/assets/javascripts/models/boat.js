@@ -10,17 +10,19 @@ WAKEbnb.Models.Boat = Backbone.Model.extend ({
 	blackout: function() {
 		var blackoutDates = [];
 		this.reservations().each(function (el) {			
-			var start = new Date(el.get('start_date'))
-			var end = new Date(el.get('end_date'))
+			if (el.get('approved'))  {
+				var start = new Date(el.get('start_date'))
+				var end = new Date(el.get('end_date'))
 			
-			start.setMinutes(start.getMinutes() + start.getTimezoneOffset())
-			end.setMinutes(end.getMinutes() + end.getTimezoneOffset())
+				start.setMinutes(start.getMinutes() + start.getTimezoneOffset())
+				end.setMinutes(end.getMinutes() + end.getTimezoneOffset())
 			
-			start = start.getTime() / (1000 * 60 * 60 * 24)
-			end = end.getTime()  / (1000 * 60 * 60 * 24)
+				start = start.getTime() / (1000 * 60 * 60 * 24)
+				end = end.getTime()  / (1000 * 60 * 60 * 24)
 			
-			for (var i = start; i <= end; i++) {
-				blackoutDates.push(i)
+				for (var i = start; i <= end; i++) {
+					blackoutDates.push(i)
+				}
 			}
 		});
 		

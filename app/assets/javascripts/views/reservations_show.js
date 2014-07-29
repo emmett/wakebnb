@@ -3,7 +3,7 @@ WAKEbnb.Views.ReservationShow = Backbone.View.extend({
 	template: JST["reservations/show"],
 	
 	initialize: function() {
-		this.listenTo(this.model, "sync remove", this.render);
+		this.listenTo(this.model, "change sync remove", this.render);
 	},
 	
 	render: function (){

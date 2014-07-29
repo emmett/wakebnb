@@ -24,6 +24,7 @@ module Api
 		
 		def update
 			@reservation = current_user.reservation_requests.find(params[:id])
+			@reservation.destroy_overlapping
 			if @reservation.update_attributes(update_reservations)
         render json: @reservation
       else

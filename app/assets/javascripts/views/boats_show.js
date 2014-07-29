@@ -14,16 +14,16 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 	reserveBoat: function(event){
 		event.preventDefault();
 		this._requireUser();
-		var view              = this;
+		var view = this;
 		
 		if(CURRENT_USER_ID){
+				
+			var start = $('#start').val();
+			var end = $('#end').val();
 			
-			var start            = $('#start').val();
-			var end              = $('#end').val();
+			var unavailable = this.model.blackout();
 			
-			var unavailable      = this.model.blackout();
-			
-			var reservation      = new WAKEbnb.Models.Reservation({
+			var reservation = new WAKEbnb.Models.Reservation({
 				boat_id: this.model.id,
 				start_date: new Date(start), 
 				end_date: new Date(end), 
@@ -44,7 +44,7 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 	},
 	
 	render: function () {
-		var renderedContent   = this.template({
+		var renderedContent = this.template({
 			boat: this.model
 		});
 		this.$el.html(renderedContent);
@@ -56,7 +56,7 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 	
 	initializeDatePicker: function(){
 		
-		var unavailable       = this.model.blackout()
+		var unavailable = this.model.blackout()
 	
 	
 		$('.input-daterange').datepicker({ 
@@ -74,7 +74,7 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 			if (e.date) {
 				unavailable.forEach(function(element){
 					if (element > e.date.getTime()){
-						endDate =  new Date(element)
+						endDate = new Date(element)
 					}
 				});
 			}
