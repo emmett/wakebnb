@@ -5,12 +5,18 @@
 ## UX
 ###Eye Candy	
 	Maps need to be in sync with data
-	Add Google search bar for lakes
+	Help/How TO
+	About Us
+	Restyle/Resize Columns and Profiles
+	User Profiles/Photos
 
 ###Use 
 	Profiles need messaging with approvals/denials
-	"Payment Model"
+		Needs Notifications
+		Refetches when it approves a request
+	Payment Model
 	Guest Login
+	Deleting a Boat
 
 ###Seed Data	
 	Seed photos are not rendering properly

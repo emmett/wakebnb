@@ -17,25 +17,27 @@ class Reservation < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :boat
 	
-  def destroy_overlapping
-		overlapping = Reservation.find_by_sql([
-		 "SELECT
-		    *
-		  FROM
-		    Reservations
-		  WHERE
-		    (? BETWEEN start_date AND end_date
-		  OR
-		    ? BETWEEN start_date AND end_date)
-		  AND
-		    ? = boat_id
-		  AND
-		    ? != id
-		 	AND approved = false
-		    ", self.start_date, self.end_date, self.boat_id, self.id
-		 ])
-	 puts overlapping
-	 overlapping.each { |request| request.destroy }
+	def destroy_overlapping
+		query_string = <<-SQL
+			SELECT
+				*
+			FROM
+				Reservations
+			WHERE
+				? <= end_date
+			AND
+				? >= start_date
+			AND
+				? = boat_id
+			AND
+				? != id
+			AND 
+				approved = false
+		SQL
+		
+		overlapping = Reservation.find_by_sql([query_string, self.start_date, self.end_date, self.boat_id, self.id])
+		puts overlapping
+		overlapping.each { |request| request.destroy }
 	end
     
 	
