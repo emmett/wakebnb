@@ -35,7 +35,8 @@ b2 = u2.boats.create(
 	title: "HMS Victory",
 	description: "Desperate affairs require desperate measures.",
 	location: "Trafalgar",
-	price: "1000"
+	price: "1000",
+	boat_photo: File.open('public/seeds/HMS_Victory.jpg')
 	)
 	
 r1 = u1.reservations.create(
