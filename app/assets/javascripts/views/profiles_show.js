@@ -15,8 +15,18 @@ WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 		this.model.reservations().each(this.addReservationView.bind(this))
 		
 		this.listenTo(this.model.reservationRequests(), 'add', this.addReservationRequestView)
+		this.listenTo(this.model.reservationRequests(), 'remove', this.addReservationRequestView)
 		this.model.reservationRequests().each(this.addReservationRequestView.bind(this))
 	},
+	
+	resetRentalRequests: function () {
+		var that = this;
+		this.subviews('.reservations-requests').forEach(function(subview){
+			subview.remove();
+		});
+		this.collection.each(function(request) { that.addReservationRequestView(request) })
+	},
+	
 	
 	
 	
@@ -33,9 +43,8 @@ WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 			return this;
 	
 		} else {
-			Backbone.history.navigate("#/profiles/"+CURRENT_USER_ID, { trigger: true });
+			Backbone.history.navigate("#/profiles/" + CURRENT_USER_ID, { trigger: true });
 		}
-		
 		
 	},
 	
@@ -50,7 +59,8 @@ WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 	
 	addReservationRequestView: function (reservation){
 		var reservationRequestShowView = new WAKEbnb.Views.ReservationRequestShow({
-			model: reservation
+			model: reservation,
+			user: this.model
 		})
 		
 		this.addSubview(".reservations-requests", reservationRequestShowView);

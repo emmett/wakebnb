@@ -2,8 +2,9 @@ WAKEbnb.Views.ReservationRequestShow = Backbone.View.extend({
 	tagName: "tr",
 	template: JST["reservations/requests"],
 	
-	initialize: function() {
+	initialize: function(options) {
 		this.listenTo(this.model, "change sync remove", this.render);
+		this.user = options.user
 	},
 	
 	events: {
@@ -12,9 +13,13 @@ WAKEbnb.Views.ReservationRequestShow = Backbone.View.extend({
 	},
 	
 	approveRequest: function(event) {
-		console.log(this.model);
+		var that = this
 		this.model.set("approved", true);
-		this.model.save();
+		this.model.save({
+			success: function(){
+				that.user.fetch()
+			}
+		});
 	},
 	
 	rejectRequest: function(event) {

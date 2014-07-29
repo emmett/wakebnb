@@ -3,16 +3,17 @@
 	<div class="price">
 		$<%= boat.escape('price') %>
 	</div>
+	<div class="user">
+		<i class="glyphicon glyphicon-envelope"> <%= boat.escape('username') %></i>
+	</div>	
 </div>
 			
-<div class="col-lg-12 col-md-12">
+<div class="col-lg-6 col-md-4">
 	<h4><%= boat.escape('title') %></h4>	
 </div>
 			
 			
 
-	<i class="glyphicon glyphicon-envelope"> <%= boat.escape('username') %></i>
-		
 	
 <div class="col-xs-12">
 	<%= boat.escape('description') %>

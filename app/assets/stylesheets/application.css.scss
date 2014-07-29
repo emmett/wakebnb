@@ -84,15 +84,32 @@
 .photo{
 	display: block;
 	width: 100%;
+	position: relative;
 }
+
+.user {
+	z-index: 3;
+	position: absolute;
+	right: 6px;
+	bottom: 0px;
+	background-color: #565a5c;
+	color: white;
+	margin: 0px;
+	padding: 7px 10px;
+	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.43;
+	-webkit-font-smoothing: antialiased;
+}
+
 .price {
 	z-index: 3;
 	position: absolute;
-	right: 1px;
+	left: 0px;
 	top: 10px;
 	background-color: #565a5c;
 	color: white;
-	margin: 5px;
+	margin: 0px;
 	padding: 7px 10px;
 	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 14px;
