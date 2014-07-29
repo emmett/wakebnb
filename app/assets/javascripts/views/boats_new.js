@@ -2,7 +2,7 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 	template: JST["boats/new"],
 	
 	events: {
-		"submit form": "submit",
+		"click .new_boat": "submit",
 		"change .my-photo-upload": "handleFile"
 	},
 	

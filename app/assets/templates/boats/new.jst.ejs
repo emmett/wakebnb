@@ -1,6 +1,11 @@
-
 <div class="container boats">
 	<h3>Create a Boat</h3>
+	<div class="input-group col-xs-12" id="panel">
+		<input id="address" class="form-control" type="textbox" placeholder="Make Waves">
+		<span class="input-group-btn">
+			<button class="btn btn-default" id="address-btn"><span class="glyphicon glyphicon-search"></span></button>
+		</span>
+	</div>
 	<div class="row">
 		<form class="col-xs-12">
 			
@@ -24,13 +29,15 @@
 			  <input type="text" class="form-control" name="boat[location]">
 			</div>
 			
+
+			
 			<div class="input-group">
 			  <label class="control-label" for="textarea">Description</label>
 			  <div class="controls">                     
 			    <textarea id="textarea" name="boat[description]"></textarea>
 			  </div>
 			</div>
-			<input class="btn btn-primary" type="submit" value="Create Boat">
+			<input class="btn btn-primary new_boat" type="submit" value="Create Boat">
 		</form>
 	</div>
 </div>
