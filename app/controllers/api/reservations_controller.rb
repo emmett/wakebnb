@@ -24,8 +24,7 @@ module Api
 		
 		def update
 			@reservation = current_user.reservation_requests.find(params[:id])
-			
-      if @reservation.update_attributes(update_reservations)
+			if @reservation.update_attributes(update_reservations)
         render json: @reservation
       else
         render json: @reservation.errors.full_messages, status: :unprocessable_entity

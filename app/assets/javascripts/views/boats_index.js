@@ -13,7 +13,4 @@ WAKEbnb.Views.BoatsIndex = Backbone.CompositeView.extend({
 		this.$el.html(renderedContent);
 		return this;
 	}
-	
-	
-	
 });
