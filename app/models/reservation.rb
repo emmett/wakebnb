@@ -36,7 +36,6 @@ class Reservation < ActiveRecord::Base
 		SQL
 		
 		overlapping = Reservation.find_by_sql([query_string, self.start_date, self.end_date, self.boat_id, self.id])
-		puts overlapping
 		overlapping.each { |request| request.destroy }
 	end
     

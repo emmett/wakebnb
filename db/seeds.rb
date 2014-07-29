@@ -10,6 +10,7 @@
 u1 = User.create(username: 'BlackBeard', password: 'password')
 u2 = User.create(username: 'horatio_nelson', password: 'password')
 
+
 p1 = u1.create_profile(
 	bio: "Hi this is my profile",
 	location: "94901",

@@ -15,8 +15,10 @@ WAKEbnb.Views.ReservationRequestShow = Backbone.View.extend({
 	approveRequest: function(event) {
 		var that = this
 		this.model.set("approved", true);
-		this.model.save({
-			success: function(){
+		this.model.save({}, {
+			success: function(data){
+				console.log(data)
+				debugger
 				that.user.fetch()
 			}
 		});

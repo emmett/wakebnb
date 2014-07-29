@@ -44,9 +44,6 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		}
 		
 		google.maps.event.addDomListener(window, 'load', initialize);
-		// google.maps.event.addListener(marker, 'dragend', function(){
-	// 		alert(marker.position)
-	// 	})
 	},
 	
 	render: function() {
