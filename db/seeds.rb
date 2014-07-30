@@ -20,7 +20,7 @@ p1 = u1.create_profile(
 	
 p2 = u2.create_profile(
 	bio: "I'm a famous British Admiral",
-	location: "94901"
+	location: "94901",
 	review_score: 5
 	)
 	
