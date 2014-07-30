@@ -20,9 +20,7 @@ WAKEbnb.Views.BoatsIndex = Backbone.CompositeView.extend({
 	
 	render: function(){
 		WAKEbnb.mapView.deleteMarkers()
-		var renderedContent = this.template({
-			boats: this.collection
-		});
+		var renderedContent = this.template({});
 		
 		this.$el.html(renderedContent);
 		this.attachSubviews();

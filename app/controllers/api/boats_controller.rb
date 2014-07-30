@@ -12,9 +12,8 @@ module Api
 		]
 		
 		def index
-			if (params[:bounds])
-				puts params[:bounds]
-				@boats = Boat.filter(params[:bounds])
+			if (params[:coords])
+				@boats = Boat.filter(params[:coords])
 			else
 				@boats = Boat.all
 			end
@@ -67,7 +66,8 @@ module Api
 				:user_id, 
 				:title, 
 				:description, 
-				:location, 
+				:longitude,
+				:latitude,
 				:boat_photo, 
 				:price
 			)

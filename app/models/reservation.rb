@@ -9,7 +9,7 @@
 #  end_date   :date             not null
 #  created_at :datetime
 #  updated_at :datetime
-#  approved   :boolean
+#  approved   :boolean          default(FALSE)
 #
 
 class Reservation < ActiveRecord::Base

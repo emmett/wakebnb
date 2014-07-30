@@ -31,24 +31,28 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		var that = this
 		var width = -1 * $( window ).width();
 		var address = $('#address').val();
+		if (address) {
+			this.geocoder.geocode( { 'address': address}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					that.oldCenter = results[0].geometry.location
+					WAKEbnb.mapView.offsetCenter(results[0].geometry.location, .25 * width, 0)
+					//need to fire a refetch with the map bounds
+					var bounds = WAKEbnb.map.getBounds()
+					console.log(bounds)
+					var NE = bounds.getNorthEast()
+					var SW = bounds.getSouthWest()
+					var coords = { minLat: SW.k, maxLat: NE.k, minLng: SW.B, maxLng: NE.B}
+					
+					WAKEbnb.Collections.boats.fetch({
+						data: { coords: coords }
+					})
+				} else {
+					alert('Geocode was not successful for the following reason: ' + status);
+				}
+			});
+		}
+		
 			
-		this.geocoder.geocode( { 'address': address}, function(results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
-				that.oldCenter = results[0].geometry.location
-				WAKEbnb.mapView.offsetCenter(results[0].geometry.location, .25 * width, 0)
-			} else {
-				alert('Geocode was not successful for the following reason: ' + status);
-			}
-		});
-		
-		//need to fire a refetch with the map bounds
-		var bounds = WAKEbnb.map.getBounds()
-		console.log(bounds)
-		WAKEbnb.Collections.boats.fetch({
-			data: { bounds: bounds }
-		})
-		
-		
 		
 	},
 		

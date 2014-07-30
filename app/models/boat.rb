@@ -6,14 +6,15 @@
 #  user_id                 :integer          not null
 #  title                   :string(255)      not null
 #  description             :text             default("Write a description")
-#  location                :string(255)      not null
-#  price                   :string(255)      not null
 #  created_at              :datetime
 #  updated_at              :datetime
 #  boat_photo_file_name    :string(255)
 #  boat_photo_content_type :string(255)
 #  boat_photo_file_size    :integer
 #  boat_photo_updated_at   :datetime
+#  latitude                :float            not null
+#  longitude               :float            not null
+#  price                   :integer
 #
 
 class Boat < ActiveRecord::Base
@@ -31,8 +32,27 @@ class Boat < ActiveRecord::Base
 		:content_type => /\Aimage\/.*\Z/ 
 	)
 	
-	def filter(bounds)
-		
+	def self.filter(bounds)
+		query_string = <<-SQL
+			SELECT 
+				*
+			FROM 
+				Boats 
+			WHERE 
+				latitude 
+			BETWEEN
+				?
+			AND 
+				? 
+			AND 
+				longitude
+			BETWEEN 
+				? 
+			AND 
+				?
+			SQL
+			
+			filtered_boats = Boat.find_by_sql([query_string, bounds[:minLat], bounds[:maxLat], bounds[:minLng], bounds[:maxLng]])
 	end
 	
 end
