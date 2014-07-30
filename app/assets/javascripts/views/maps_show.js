@@ -31,7 +31,6 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		var that = this
 		var width = -1 * $( window ).width();
 		var address = $('#address').val();
-		this.deleteMarkers();
 			
 		this.geocoder.geocode( { 'address': address}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
@@ -44,7 +43,6 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		
 		//need to fire a refetch with the map bounds
 		var bounds = WAKEbnb.map.getBounds()
-		debugger
 		console.log(bounds)
 		WAKEbnb.Collections.boats.fetch({
 			data: { bounds: bounds }
@@ -80,8 +78,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 			position: location,
 			map: WAKEbnb.map
 		});
-		$('#lat').val(location.lat().toFixed(3));
-		$('#long').val(location.lng().toFixed(3));
+		
 		this.markers.push(marker);
 			
 		google.maps.event.addDomListener(marker, 'dragend', function(evt) {
@@ -115,6 +112,10 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		
 	dropPin: function () {
 		this.deleteMarkers();
+		
+		$('#lat').val(this.oldCenter.lat().toFixed(3));
+		$('#long').val(this.oldCenter.lng().toFixed(3));
+		
 		this.addMarker(this.oldCenter, true);
 	},
 		

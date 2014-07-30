@@ -54,7 +54,8 @@ $(function(){
 		})
 	});
 	
-	$('#navbar-buttons').on('click', '#new-boat', function(){ 
+	$('#navbar-buttons').on('click', '#new-boat', function(){
+		WAKEbnb.mapView.deleteMarkers() 
 		Backbone.history.navigate("/boats/new", { trigger: true })
 	})
 	
