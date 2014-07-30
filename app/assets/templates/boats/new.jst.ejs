@@ -16,23 +16,28 @@
 			
 			<div class="input-group">
 			  <span class="input-group-addon">Boat Title</span>
-			  <input type="text" class="form-control" name="boat[title]">
+			  <input type="text" class="form-control" id="title">
 			</div>
 
 			<div class="input-group">
 			  <span class="input-group-addon">$</span>
-			  <input type="text" class="form-control" name="boat[price]">
+			  <input type="text" class="form-control" id="price">
 			  <span class="input-group-addon">.00</span>
 			</div>
 			
 			<div class="input-group">
-				<span class="input-group-addon">Location</span>
-			  <input type="text" class="form-control" name="boat[location]">
+			  <input type="hidden" class="form-control" id="long">
+			</div>
+			
+			<div class="input-group">
+			  <input type="hidden" class="form-control" id="lat">
 			</div>
 			
 			<div class="input-group">
 				<button type="button" class="btn btn-default" id="dropPin">Drop Anchor <img src="/assets/glyphicons/anchor.png"></img></button>
 			</div>
+			
+			
 
 			
 			<div class="input-group">
@@ -41,7 +46,7 @@
 			    <textarea id="textarea" name="boat[description]"></textarea>
 			  </div>
 			</div>
-			<input class="btn btn-primary new_boat" type="submit" value="Create Boat">
+			<input class="btn btn-primary new_boat" value="Create Boat">
 		</form>
 	</div>
 </div>

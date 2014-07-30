@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728204421) do
+ActiveRecord::Schema.define(version: 20140730181343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,18 +20,17 @@ ActiveRecord::Schema.define(version: 20140728204421) do
     t.integer  "user_id",                                                 null: false
     t.string   "title",                                                   null: false
     t.text     "description",             default: "Write a description"
-    t.string   "location",                                                null: false
-    t.string   "price",                                                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "boat_photo_file_name"
     t.string   "boat_photo_content_type"
     t.integer  "boat_photo_file_size"
     t.datetime "boat_photo_updated_at"
+    t.float    "latitude",                                                null: false
+    t.float    "longitude",                                               null: false
+    t.integer  "price"
   end
 
-  add_index "boats", ["location"], name: "index_boats_on_location", using: :btree
-  add_index "boats", ["price"], name: "index_boats_on_price", using: :btree
   add_index "boats", ["title"], name: "index_boats_on_title", using: :btree
   add_index "boats", ["user_id"], name: "index_boats_on_user_id", using: :btree
 

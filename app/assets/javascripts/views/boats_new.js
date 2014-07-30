@@ -4,7 +4,6 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 	events: {
 		"click .new_boat": "submit",
 		"change .my-photo-upload": "handleFile",
-		"click #dropPin": "dropPin"
 	},
 	
 	handleFile: function (event) {
@@ -12,7 +11,6 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 		var view = this;
 		var reader = new FileReader();
 		reader.onload = function(e) {
-			// note that this isn't saving
 			console.log(this.result)
 			view.model.set('boat_photo', this.result);
 		}
@@ -28,20 +26,27 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 		return this;
 	},
 	
-	dropPin: function() {
-		marker = new google.maps.Marker({
-			map: map,
-			position: map.center,
-			draggable: true
-		});
-		
-		google.maps.event.addDomListener(marker, 'dragend', function(evt) {console.log('Lat '+ evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3))});	
-	},
+	
 	
 	submit: function(event) {
 		event.preventDefault();
 		var that = this;
-		var params = $(event.currentTarget).serializeJSON();		
+		debugger
+		var price = parseInt($('#price').val())
+		var title = $('#title').val()
+		var longitude = parseFloat($('#long').val())
+		var latitude = parseFloat($('#lat').val())
+		var description = $('#description').val()
+		var params = {
+			boat: {
+				price: price, 
+				title: title, 
+				longitude: longitude, 
+				latitude: latitude,
+				description: description
+			}
+		}		
+		console.log(params)
 		
 		this.model.save(params["boat"], {
 			success: function (){

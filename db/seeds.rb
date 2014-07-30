@@ -15,19 +15,21 @@ p1 = u1.create_profile(
 	bio: "Hi this is my profile",
 	location: "94901",
 	review_score: 5
+	
 	)
 	
 p2 = u2.create_profile(
 	bio: "I'm a famous British Admiral",
-	location: "94901",
+	
 	review_score: 5
 	)
 	
 b1 = u1.boats.create(
 	title: "Flying Dutchman",
 	description: "Scourge of the highseas",
-	location: "Davey Jones locker",
-	price: "your soul",
+	latitude: 39.236,
+	longitude: -120.021,
+	price: 10000,
 	boat_photo: File.open('public/seeds/Flying_Dutchman.jpg')
 	)
 	
@@ -35,8 +37,9 @@ b1 = u1.boats.create(
 b2 = u2.boats.create(
 	title: "HMS Victory",
 	description: "Desperate affairs require desperate measures.",
-	location: "Trafalgar",
-	price: "1000",
+	latitude: 39.224,
+	longitude: -120.059,
+	price: 1000,
 	boat_photo: File.open('public/seeds/HMS_Victory.jpg')
 	)
 	
@@ -46,4 +49,3 @@ r1 = u1.reservations.create(
 	end_date: Date.new(2014,7,28)
 	)
 	
-	# File.open('public/images/{filename.jpg})
