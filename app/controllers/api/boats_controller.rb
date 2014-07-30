@@ -12,7 +12,12 @@ module Api
 		]
 		
 		def index
-			@boats = Boat.all
+			if (params[:bounds])
+				puts params[:bounds]
+				@boats = Boat.filter(params[:bounds])
+			else
+				@boats = Boat.all
+			end
 		end
 
 		def show

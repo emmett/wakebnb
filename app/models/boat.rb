@@ -31,4 +31,8 @@ class Boat < ActiveRecord::Base
 		:content_type => /\Aimage\/.*\Z/ 
 	)
 	
+	def filter(bounds)
+		
+	end
+	
 end

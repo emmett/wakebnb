@@ -44,7 +44,13 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		
 		//need to fire a refetch with the map bounds
 		var bounds = WAKEbnb.map.getBounds()
+		debugger
 		console.log(bounds)
+		WAKEbnb.Collections.boats.fetch({
+			data: { bounds: bounds }
+		})
+		
+		
 		
 	},
 		

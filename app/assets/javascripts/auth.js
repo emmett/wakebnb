@@ -14,6 +14,7 @@ $(function(){
 			data: formData, 
 			success: function(data){
 				CURRENT_USER_ID = data.id;	
+				CURRENT_USER_NAME = data.username;
 				signedInBtns();
 				hideLogin();
 			}
@@ -29,6 +30,7 @@ $(function(){
 			data: formData, 
 			success: function(data){
 				CURRENT_USER_ID = data.id;
+				CURRENT_USER_NAME = data.username;
 				signedInBtns();
 				hideSignup();		
 			},
