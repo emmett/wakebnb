@@ -3,20 +3,21 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 	
 	events: {
 		"click .new_boat": "submit",
-		"change .my-photo-upload": "handleFile"
+		"change .my-photo-upload": "handleFile",
+		"click #dropPin": "dropPin"
 	},
 	
 	handleFile: function (event) {
-	  var file = event.currentTarget.files[0];
-	  var view = this;
-	  var reader = new FileReader();
-	  reader.onload = function(e) {
-	    // note that this isn't saving
+		var file = event.currentTarget.files[0];
+		var view = this;
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			// note that this isn't saving
 			console.log(this.result)
-	    view.model.set('boat_photo', this.result);
-	  }
+			view.model.set('boat_photo', this.result);
+		}
 
-	  reader.readAsDataURL(file);
+		reader.readAsDataURL(file);
 	},
 	
 	render: function() {
@@ -25,6 +26,16 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 		this.$el.html(renderedContent);
 		
 		return this;
+	},
+	
+	dropPin: function() {
+		marker = new google.maps.Marker({
+			map: map,
+			position: map.center,
+			draggable: true
+		});
+		
+		google.maps.event.addDomListener(marker, 'dragend', function(evt) {console.log('Lat '+ evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3))});	
 	},
 	
 	submit: function(event) {

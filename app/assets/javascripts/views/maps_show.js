@@ -7,11 +7,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 	
 	initialize: function(){
 		$( "#main" ).on( "click", "#address-btn", codeAddress)
-		// this.listento(mapMarkers, 'dragend', this.updateCoords)
 		
-		var map;
-		var geocoder;
-		var marker;
 		
 		function initialize(){
 			geocoder = new google.maps.Geocoder()
@@ -28,23 +24,46 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		};
 		
 		function codeAddress() {
+			var width = -1 * $( window ).width();
 			var address = $('#address').val();
 			geocoder.geocode( { 'address': address}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
-					results[0].geometry.location.B += .1
-					map.setCenter(results[0].geometry.location); // need to offset
+					offsetCenter(results[0].geometry.location, .25 * width, 0)
+					 // need to offset
 					
-					marker = new google.maps.Marker({
-						map: map,
-						position: results[0].geometry.location,
-						draggable: true
-					});
+				
 					
-				google.maps.event.addDomListener(marker, 'dragend', function(evt) {console.log('Lat '+ evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3))});	
 				} else {
 					alert('Geocode was not successful for the following reason: ' + status);
 				}
 			});
+			
+			function offsetCenter(latlng,offsetx,offsety) {
+
+			// latlng is the apparent centre-point
+			// offsetx is the distance you want that point to move to the right, in pixels
+			// offsety is the distance you want that point to move upwards, in pixels
+			// offset can be negative
+			// offsetx and offsety are both optional
+			var scale = Math.pow(2, map.getZoom());
+			var nw = new google.maps.LatLng(
+			    map.getBounds().getNorthEast().lat(),
+			    map.getBounds().getSouthWest().lng()
+			);
+
+			var worldCoordinateCenter = map.getProjection().fromLatLngToPoint(latlng);
+			var pixelOffset = new google.maps.Point((offsetx/scale) || 0,(offsety/scale) ||0)
+
+			var worldCoordinateNewCenter = new google.maps.Point(
+			    worldCoordinateCenter.x - pixelOffset.x,
+			    worldCoordinateCenter.y + pixelOffset.y
+			);
+
+			var newCenter = map.getProjection().fromPointToLatLng(worldCoordinateNewCenter);
+
+			map.setCenter(newCenter);
+
+			}
 		}
 		
 		google.maps.event.addDomListener(window, 'load', initialize);
