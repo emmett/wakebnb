@@ -10,16 +10,13 @@ WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 
 	initialize: function() {
 		this.listenTo(this.model, "sync", this.render);
-		
-		
-		
+
 		this.listenTo(this.model.reservations(), 'add', this.addReservationView)
 		this.model.reservations().each(this.addReservationView.bind(this))
 		
 		this.listenTo(this.model.reservationRequests(), 'add', this.addReservationRequestView)
 		this.listenTo(this.model.reservationRequests(), 'remove', this.resetRentalRequests)
 		this.listenTo(this.model.reservationRequests(), "reset", this.resetRentalRequests)
-		// this.model.reservationRequests().each(this.addReservationRequestView.bind(this))
 	},
 	
 	resetRentalRequests: function () {
@@ -40,6 +37,8 @@ WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 		var renderedContent = this.template({
 			profile: this.model
 		});
+		
+		WAKEbnb.mapView.deleteMarkers()
 		
 		if (CURRENT_USER_ID == this.model.get('id')) {
 			this.$el.html(renderedContent);	
