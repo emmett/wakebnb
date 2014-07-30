@@ -8,7 +8,7 @@ $(function(){
 	$('#signin-form').on('submit', function(event){
 		event.preventDefault();
 		var formData = $(event.currentTarget).serializeJSON();
-		$.ajax( {
+		$.ajax({
 			url: "session",
 			type: "post",
 			data: formData, 
@@ -17,13 +17,13 @@ $(function(){
 				signedInBtns();
 				hideLogin();
 			}
-		})
-	})
+		});
+	});
 	
 	$('#signup-form').on('submit', function(event){
 		event.preventDefault();
 		var formData = $(event.currentTarget).serializeJSON();
-		$.ajax( {
+		$.ajax({
 			url: "users",
 			type: "post",
 			data: formData, 
@@ -31,21 +31,26 @@ $(function(){
 				CURRENT_USER_ID = data.id;
 				signedInBtns();
 				hideSignup();		
+			},
+			
+			error: function(data, res){
+				res.responseText
 			}
-		})
-	})
+			
+		});
+	});
 	
 	$('#navbar-buttons').on('click', '#logout-btn', function(){
 		event.preventDefault(); 
+		CURRENT_USER_ID = "";
 		$.ajax({ 
 			url:"session", 
 			type:"delete", 
 			success: function(){
-				CURRENT_USER_ID = "";
 				loggedOutBtns()
 			}
 		})
-	})
+	});
 	
 	$('#navbar-buttons').on('click', '#new-boat', function(){ 
 		Backbone.history.navigate("/boats/new", { trigger: true })

@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
 			sign_in!(@user)
 			render json: @user
 		else
-			flash.now[:errors] = ["Invalid credentials please try again"]
-			render :new
+			render json: ["Invalid credentials please try again"], status: 422
 		end
 	end
 	

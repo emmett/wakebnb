@@ -1,24 +1,28 @@
 
-<div class="col-lg-4 col-md-6 col-sm-12 container boat-profile">
-	<div class="photo">
-		<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-responsive" />
+<div class="photo">
+	<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-responsive" />
+	<div class="price">
+		$<%= boat.escape('price') %>
 	</div>
-			
-	<div class="col-lg-12 col-md-12">
-		<h4><%= boat.escape('title') %></h4>	
-	</div>
-			
-			
-	<div class="price col-lg-6">
-		<i class="glyphicon glyphicon-usd"><%= boat.escape('price') %></i>
+	<div class="user">
 		<i class="glyphicon glyphicon-envelope"> <%= boat.escape('username') %></i>
-		<a href="#/boats/<%= boat.escape('id')%>" class="btn btn-success" id="reserve-btn"><span class="glyphicon glyphicon-calendar"></span>Reserve Me</a>
-	</div>
-		
+	</div>	
+</div>
+			
+<div class="col-lg-6 col-md-4">
+	<h4><%= boat.escape('title') %></h4>	
+</div>
+			
+			
+
 	
-	<div class="col-xs-12">
-		<%= boat.escape('description') %>
-	</div>
+<div class="col-xs-12">
+	<%= boat.escape('description') %>
+</div>
+	
+	
+	
+
 	
 	
 	

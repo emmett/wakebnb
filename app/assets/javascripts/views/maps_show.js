@@ -7,6 +7,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 	
 	initialize: function(){
 		$( "#main" ).on( "click", "#address-btn", codeAddress)
+		// this.listento(mapMarkers, 'dragend', this.updateCoords)
 		
 		var map;
 		var geocoder;
@@ -32,11 +33,14 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 				if (status == google.maps.GeocoderStatus.OK) {
 					results[0].geometry.location.B += .1
 					map.setCenter(results[0].geometry.location); // need to offset
+					
 					marker = new google.maps.Marker({
 						map: map,
 						position: results[0].geometry.location,
 						draggable: true
 					});
+					
+				google.maps.event.addDomListener(marker, 'dragend', function(evt) {console.log('Lat '+ evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3))});	
 				} else {
 					alert('Geocode was not successful for the following reason: ' + status);
 				}
@@ -44,6 +48,10 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		}
 		
 		google.maps.event.addDomListener(window, 'load', initialize);
+	},
+	
+	updateCoords: function(event){
+		console.log(event)
 	},
 	
 	render: function() {
