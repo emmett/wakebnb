@@ -1,4 +1,4 @@
-json.(boat, :id, :title, :description, :price, :created_at, :updated_at)
+json.(boat, :id, :title, :description, :longitude, :latitude, :price, :created_at, :updated_at)
 
 json.username boat.user.username
 

@@ -27,12 +27,12 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 				disableDefaultUI: true
 			}
 			
-			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			WAKEbnb.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 			
 			
-			google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
-				oldCenter = map.center			
-				offsetCenter(map.center, (-.25 * $( window ).width()), 0)	
+			google.maps.event.addListenerOnce(WAKEbnb.map, 'tilesloaded', function(){
+				oldCenter = WAKEbnb.map.center			
+				offsetCenter(WAKEbnb.map.center, (-.25 * $( window ).width()), 0)	
 			})
 		};
 		
@@ -54,13 +54,13 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		
 		function offsetCenter(latlng,offsetx,offsety) {
 
-			var scale = Math.pow(2, map.getZoom());
+			var scale = Math.pow(2, WAKEbnb.map.getZoom());
 			var nw = new google.maps.LatLng(
-				map.getBounds().getNorthEast().lat(),
-				map.getBounds().getSouthWest().lng()
+				WAKEbnb.map.getBounds().getNorthEast().lat(),
+				WAKEbnb.map.getBounds().getSouthWest().lng()
 			);
 
-			var worldCoordinateCenter = map.getProjection().fromLatLngToPoint(latlng);
+			var worldCoordinateCenter = WAKEbnb.map.getProjection().fromLatLngToPoint(latlng);
 			var pixelOffset = new google.maps.Point((offsetx/scale) || 0,(offsety/scale) ||0)
 
 			var worldCoordinateNewCenter = new google.maps.Point(
@@ -68,9 +68,9 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 				worldCoordinateCenter.y + pixelOffset.y
 			);
 
-			var newCenter = map.getProjection().fromPointToLatLng(worldCoordinateNewCenter);
+			var newCenter = WAKEbnb.map.getProjection().fromPointToLatLng(worldCoordinateNewCenter);
 
-			map.setCenter(newCenter);
+			WAKEbnb.map.setCenter(newCenter);
 
 		}
 		
@@ -78,7 +78,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 			var marker = new google.maps.Marker({
 				draggable: draggable,
 				position: location,
-				map: map
+				map: WAKEbnb.map
 			});
 			markers.push(marker);
 			
@@ -116,10 +116,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 			addMarker(oldCenter, true);
 		}
 		
-	
-		
 		google.maps.event.addDomListener(window, 'load', initialize);
-	
 	},
 	
 
