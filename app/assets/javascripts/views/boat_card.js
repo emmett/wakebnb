@@ -21,7 +21,7 @@ WAKEbnb.Views.BoatsCardShow = Backbone.View.extend({
 			boat: this.model
 		});
 		
-		WAKEbnb.map.addMarker(new google.maps.LatLng(this.model.get('latitude'), this.model.get('longitude')))
+		WAKEbnb.mapView.addMarker(new google.maps.LatLng(this.model.get('latitude'), this.model.get('longitude')))
 		this.$el.html(renderedContent);
 		
 		this.initializeDatePicker();
