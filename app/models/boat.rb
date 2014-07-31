@@ -23,7 +23,7 @@ class Boat < ActiveRecord::Base
 	
 	if Rails.env.production?
 		has_attached_file :boat_photo, :styles  => {
-			:big  => "200X200"
+			:big  => "470X350"
 		}
 	else
 		has_attached_file :boat_photo
