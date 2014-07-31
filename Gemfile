@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'ruby', '1.9.3p545'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
