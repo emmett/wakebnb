@@ -11,6 +11,11 @@ u1 = User.create(username: 'BlackBeard', password: 'password')
 u2 = User.create(username: 'horatio_nelson', password: 'password')
 u3 = User.create(username: 'guest', password: 'password')
 
+u1.create_profile()
+u2.create_profile()
+u3.create_profile()
+
+
 b1 = u1.boats.create(
 	title: "Flying Dutchman",
 	description: "Scourge of the highseas",

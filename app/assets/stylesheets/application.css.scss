@@ -68,15 +68,33 @@
 
 .boats {
 	left: 48%;
+	padding-left: 0px;
+	padding-right: 0px;
 	padding-top: 50px;
 	background-color: white;
 	position: absolute;
-	overflow-y: auto;
+	overflow-y: hidden;
 	overflow-x: hidden;
 	top: 0;
 	bottom: 0;
 	box-shadow: 6px 0px 5px -5px, -6px 0px 5px -5px;
 	height: 100%;
+}
+
+.boat_description{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis
+}
+
+.boats-list {
+	padding-top: 100px;
+	position: absolute;
+	overflow-y: auto;
+	overflow-x: hidden;
+	top: 0;
+	bottom: 0;
+	
 }
 
 .photo{
@@ -93,7 +111,7 @@
 }
 
 .user {
-	z-index: 3;
+	z-index: 0;
 	position: absolute;
 	left: 3%;
 	bottom: 0px;
@@ -108,7 +126,7 @@
 }
 
 .price {
-	z-index: 3;
+	z-index: 0;
 	position: absolute;
 	right: 0px;
 	top: 10px;
@@ -142,6 +160,12 @@
 }
 
 .map-search{
-	margin-bottom: 10px;
+	left: 0px; 
+	z-index: 999;
+	width:100%;
+}
+
+.input-group-btn{
+	z-index: 999;
 }
 
