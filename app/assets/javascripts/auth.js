@@ -8,6 +8,7 @@ $(function(){
 	$('#signin-form').on('submit', function(event){
 		event.preventDefault();
 		var formData = $(event.currentTarget).serializeJSON();
+		debugger
 		$.ajax({
 			url: "session",
 			type: "post",
@@ -19,6 +20,13 @@ $(function(){
 				hideLogin();
 			}
 		});
+	});
+	
+	$('#guest_signin').on('click', function(event){
+		event.preventDefault();
+		$('#username').val('guest');
+		$('#password').val('password');
+		$('#signin-form').submit()
 	});
 	
 	$('#signup-form').on('submit', function(event){

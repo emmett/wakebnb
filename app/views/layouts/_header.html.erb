@@ -39,19 +39,17 @@
 			</div>
 			<div class="modal-body">
 				<form class="form" id="signin-form" role="form" action="/session" method="post">
-					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<input type="hidden" name="authenticity_token" id="auth" value="<%= form_authenticity_token %>">
 					<div class="form-group">
-						<input type="text" 
-						class="form-control" 
-						placeholder="Enter Username" 
-						name="user[username]"
-						>
+						<input type="text" class="form-control" id="username" placeholder="Enter Username" name="user[username]">
 					</div>
 	
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="Password" name="user[password]">
+						<input type="password" class="form-control" id="password" placeholder="Password" name="user[password]">
 					</div>
-					<input type="submit" value="Sign In" class="btn btn-primary">
+					
+					
+					<input type="submit" value="Sign In" class="btn btn-primary"> <div class="btn btn-success" id="guest_signin">Sign In as Guest</div>
 				</form>
 			</div>
 				
