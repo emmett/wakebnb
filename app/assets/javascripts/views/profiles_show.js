@@ -1,5 +1,6 @@
 WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 	template: JST["profiles/show"],
+	className: "profile-show",
 	
 	_requireUser: function(){
 		if (!CURRENT_USER_ID){

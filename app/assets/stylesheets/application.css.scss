@@ -17,8 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar {
-}
+
 
 
 
@@ -123,6 +122,26 @@
 	-webkit-font-smoothing: antialiased;	
 }
 
+.profile-show {
+	padding-top: 50px;
+	background-color: white;
+	min-width: 40%;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+.reservations{
+	overflow: auto;
+}
+
+.reservations-requests{
+	overflow: auto;
+}
+
 .map-search{
 	margin-bottom: 10px;
 }
+
