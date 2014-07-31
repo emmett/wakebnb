@@ -6,7 +6,8 @@ module Api
 			:user_id, 
 			:title, 
 			:description, 
-			:location, 
+			:longitude,
+			:latitude, 
 			:boat_photo, 
 			:price
 		]

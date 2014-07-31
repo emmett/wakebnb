@@ -1,5 +1,5 @@
 WAKEbnb.Views.BoatsCardShow = Backbone.View.extend({
-	className: "col-lg-4 col-md-6 col-sm-12 container boat-profile",
+	className: "col-lg-6 col-md-6 col-sm-12 container boat-profile",
 	template: JST["boats/card"],
 	
 	attributes: function(){
@@ -32,7 +32,6 @@ WAKEbnb.Views.BoatsCardShow = Backbone.View.extend({
 	initializeDatePicker: function(){
 		
 		var unavailable = this.model.blackout()
-	
 	
 		$('.input-daterange').datepicker({ 
 			mindate: new Date(),

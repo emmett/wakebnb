@@ -1,5 +1,6 @@
 WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 	template: JST["boats/new"],
+	className: "boats col-lg-4 col-md-4 col-sm-6 col-xs-6",	
 	
 	events: {
 		"click .new_boat": "submit",
@@ -11,7 +12,6 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 		var view = this;
 		var reader = new FileReader();
 		reader.onload = function(e) {
-			console.log(this.result)
 			view.model.set('boat_photo', this.result);
 		}
 
@@ -31,7 +31,6 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 	submit: function(event) {
 		event.preventDefault();
 		var that = this;
-		debugger
 		var price = parseInt($('#price').val())
 		var title = $('#title').val()
 		var longitude = parseFloat($('#long').val())
@@ -46,7 +45,6 @@ WAKEbnb.Views.BoatsNew = Backbone.View.extend({
 				description: description
 			}
 		}		
-		console.log(params)
 		
 		this.model.save(params["boat"], {
 			success: function (){

@@ -51,8 +51,9 @@ class Boat < ActiveRecord::Base
 			AND 
 				?
 			SQL
-			
 			filtered_boats = Boat.find_by_sql([query_string, bounds[:minLat], bounds[:maxLat], bounds[:minLng], bounds[:maxLng]])
+			filtered_boats.map{ |boat| puts boat.title }
+			return filtered_boats
 	end
 	
 end

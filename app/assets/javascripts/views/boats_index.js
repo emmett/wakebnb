@@ -15,12 +15,13 @@ WAKEbnb.Views.BoatsIndex = Backbone.CompositeView.extend({
 	initialize: function () {
 		this.listenTo(this.collection, 'sync', this.render)
 		this.listenTo(this.collection, 'add', this.addBoatView)
+		this.listenTo(this.collection, 'reset', this.resetBoatView)
 		this.collection.each(this.addBoatView.bind(this))
 	},
 	
 	render: function(){
 		WAKEbnb.mapView.deleteMarkers()
-		var renderedContent = this.template({});
+		var renderedContent = this.template();
 		
 		this.$el.html(renderedContent);
 		this.attachSubviews();
@@ -34,5 +35,21 @@ WAKEbnb.Views.BoatsIndex = Backbone.CompositeView.extend({
 		
 		this.addSubview(".boats-list", boatCardView);
 		this.listenTo(boatCardView, "remove", this.removeSubview.bind(this, ".boats-list"))
-	}
+	},
+	
+	removeBoatView: function() {
+		
+	},
+	
+	resetBoatView: function () {
+		var that = this;
+		this.$('.boats-list').empty();
+		_(this.subviews('.boats-list')).each(function(subview){
+			subview.remove();
+		});
+		this._subviews['.boats-list'] = [];
+		this.collection.each(function(boat) { that.addBoatView(boat) })
+		this.render();
+	},
+	
 });

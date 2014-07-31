@@ -21,7 +21,6 @@ WAKEbnb.Views.ProfileShow = Backbone.CompositeView.extend({
 	
 	resetRentalRequests: function () {
 		var that = this;
-		debugger
 		this.$('.reservations-requests').empty();
 		_(this.subviews('.reservations-requests')).each(function(subview){
 			subview.remove();

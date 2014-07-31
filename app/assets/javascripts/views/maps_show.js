@@ -38,13 +38,13 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 					WAKEbnb.mapView.offsetCenter(results[0].geometry.location, .25 * width, 0)
 					//need to fire a refetch with the map bounds
 					var bounds = WAKEbnb.map.getBounds()
-					console.log(bounds)
 					var NE = bounds.getNorthEast()
 					var SW = bounds.getSouthWest()
 					var coords = { minLat: SW.k, maxLat: NE.k, minLng: SW.B, maxLng: NE.B}
-					
+						
 					WAKEbnb.Collections.boats.fetch({
-						data: { coords: coords }
+						data: { coords: coords },
+						reset: true
 					})
 				} else {
 					alert('Geocode was not successful for the following reason: ' + status);
@@ -77,10 +77,12 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 	},
 		
 	addMarker: function (location, draggable) {
+		var image = '/assets/images/glyphicons/anchor.png'
 		var marker = new google.maps.Marker({
 			draggable: draggable,
 			position: location,
-			map: WAKEbnb.map
+			map: WAKEbnb.map,
+			image: image			
 		});
 		
 		this.markers.push(marker);
