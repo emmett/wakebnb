@@ -22,7 +22,7 @@ class Boat < ActiveRecord::Base
 	has_many :reservations
 	
 	if Rails.env.production?
-		has_attached_file :boat_photo, styles: { big: "100x100>" }
+		has_attached_file :boat_photo
 	else
 		has_attached_file :boat_photo
 	end
