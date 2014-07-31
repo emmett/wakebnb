@@ -31,7 +31,7 @@ b2 = u2.boats.create(
 	
 b3 = u3.boats.create(
 	title: "Guest Boat",
-	description: "This is the guest boat"
+	description: "This is the guest boat",
 	latitude: 39.225,
 	longitude: -120.062,
 	price: 300,
