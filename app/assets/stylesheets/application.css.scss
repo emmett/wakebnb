@@ -87,10 +87,16 @@
 	position: relative;
 }
 
+.photo-show{
+	display: block;
+	width: 100%;
+	position: relative;
+}
+
 .user {
 	z-index: 3;
 	position: absolute;
-	right: 6px;
+	left: 3%;
 	bottom: 0px;
 	background-color: #565a5c;
 	color: white;
@@ -105,7 +111,7 @@
 .price {
 	z-index: 3;
 	position: absolute;
-	left: 0px;
+	right: 0px;
 	top: 10px;
 	background-color: #565a5c;
 	color: white;

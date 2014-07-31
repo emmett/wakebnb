@@ -1,16 +1,13 @@
 
-<div class="photo">
+<div class="photo-show">
 	<img src="<%= boat.escape('boat_photo_url') %>" alt="" class="img-responsive" />
-	<div class="price">
-		$<%= boat.escape('price') %>
-	</div>
 	<div class="user">
 		<i class="glyphicon glyphicon-envelope"> <%= boat.escape('username') %></i>
 	</div>	
 </div>
-			
+
 <div class="col-lg-6 col-md-4">
-	<h4><%= boat.escape('title') %></h4>	
+	<h4><%= boat.escape('title') %></h4> $<%= boat.escape('price') %>	
 </div>
 			
 			
