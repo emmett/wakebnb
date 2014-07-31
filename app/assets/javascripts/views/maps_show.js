@@ -36,7 +36,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 				if (status == google.maps.GeocoderStatus.OK) {
 					that.oldCenter = results[0].geometry.location
 					WAKEbnb.mapView.offsetCenter(results[0].geometry.location, .25 * width, 0)
-					//need to fire a refetch with the map bounds
+
 					var bounds = WAKEbnb.map.getBounds()
 					var NE = bounds.getNorthEast()
 					var SW = bounds.getSouthWest()

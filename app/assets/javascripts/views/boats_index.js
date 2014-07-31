@@ -9,7 +9,7 @@ WAKEbnb.Views.BoatsIndex = Backbone.CompositeView.extend({
 	gotoBoat: function(event){
 		event.preventDefault();
 		var id = event.currentTarget.getAttribute('data-id');
-		Backbone.history.navigate("/boats/" + id, { trigger: true });
+		Backbone.history.navigate("#/boats/" + id, { trigger: true });
 	},
 	
 	initialize: function () {

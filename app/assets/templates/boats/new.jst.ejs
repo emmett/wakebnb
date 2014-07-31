@@ -1,50 +1,69 @@
 
 <h3>Create a Boat</h3>
 
-	<div class="input-group row" id="panel">
-		<input id="address" class="form-control" type="textbox" placeholder="Make Waves">
-		<span class="input-group-btn">
-			<button class="btn btn-default" id="address-btn"><span class="glyphicon glyphicon-search"></span></button>
-		</span>
-	</div>
-	
-			
-		<div class="input-group">
-			<span class="input-group-addon">Boat Title</span>
+<div class="input-group" id="panel">
+	<input id="address" class="form-control" type="textbox" placeholder="Search for a Lake">
+	<span class="input-group-btn">
+		<button class="btn btn-default" id="address-btn"><span class="glyphicon glyphicon-search"></span></button>
+	</span>
+</div>
+
+<div role="form>
+	<div class="form-group">
+		<label for="title" class="col-sm-4 control-label">Title</label>
+		<div class="col-sm-8">
 			<input type="text" class="form-control" id="title">
 		</div>
-
-		<div class="input-group">
-			<span class="input-group-addon">$</span>
+	</div>
+	
+	<div class="form-group">
+		<label for="price" class="col-sm-4 control-label">Price</label>
+		<div class="col-sm-8">
 			<input type="text" class="form-control" id="price">
-			<span class="input-group-addon">.00</span>
 		</div>
+	</div>
+
+	<div class="form-group">
+		<input type="hidden" class="form-control" id="long">
+	</div>
 			
-		<div class="input-group">
-			<input type="hidden" class="form-control" id="long">
+	<div class="form-group">
+		<input type="hidden" class="form-control" id="lat">
+	</div>
+
+	<div class="form-group">
+		<button type="button" class="btn btn-default col-sm-12" id="dropPin">Drop Anchor<img src="/assets/glyphicons/anchor.png"></img></button>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label" for="photo-upload">Add A Photo</label>	
+		<input type="file" class="my-photo-upload" name="photo-upload">
+	</div>
+
+	<div class="form-group">
+		<label class="control-label" for="textarea">Description</label>
+		<div>              
+			<textarea class="form-control" rows="3" id="description"></textarea>
 		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-10">
+			<input class="btn btn-primary new_boat" value="Create Boat">
+		</div>
+	</div>
+</div>
+
+
+	
+
+
 			
-		<div class="input-group">
-			<input type="hidden" class="form-control" id="lat">
-		</div>
-			
-		<div class="input-group">
-			<button type="button" class="btn btn-default" id="dropPin">Drop Anchor <img src="/assets/glyphicons/anchor.png"></img></button>
-		</div>
+
 	
 		
-		<div class="input-group">
-			<label class="control-label" for="photo-upload">Add A Photo</label>	
-			<input type="file" class="my-photo-upload" name="photo-upload">
-		</div>
+
 
 			
-		<div class="input-group">
-			<label class="control-label" for="textarea">Description</label>
-			<div class="controls">                     
-				<textarea id="textarea" name="boat[description]" id="description"></textarea>
-			</div>
-		</div>
-		<input class="btn btn-primary new_boat" value="Create Boat">
-	</div>
-</form>
+
+

@@ -88,3 +88,5 @@ var loggedOutBtns = function (){
 	$('#navbar-buttons').html('<button class="btn btn-primary navbar-btn navbar-right" id="login-btn"><span class="glyphicon glyphicon-log-in"></span> Log In</button>')
 	$('#navbar-buttons').append('<button class="btn btn-success navbar-btn navbar-right" id="signup-btn"><span class="glyphicon glyphicon-edit"></span> Sign Up</button>')
 }
+
+
