@@ -61,19 +61,19 @@ b5 = u3.boats.create(
 	boat_photo: File.open('public/seeds/fridge.jpg')
 	)
 b6 = u3.boats.create(
-	title: "SS Sea Lion",
-	description: "There be sea lions",
+	title: "SS Lookout!",
+	description: "Split hull built for speed",
 	latitude: 39.228,
 	longitude:  -120.06514,
-	price: 20,
+	price: 100,
 	boat_photo: File.open('public/seeds/boat-sheared.jpg')
 	)
 b7 = u3.boats.create(
-	title: "SS Sea Lion",
-	description: "There be sea lions",
+	title: "Cabana Boat",
+	description: "Totally green",
 	latitude: 39.219,
 	longitude:  -120.06514,
-	price: 20,
+	price: 50,
 	boat_photo: File.open('public/seeds/cabana_boat.jpg')
 	)
 
