@@ -7,7 +7,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 		this.markers = [];
 		
 		this.geocoder = new google.maps.Geocoder()
-		var latlng = new google.maps.LatLng(39.120, -120.040);
+		var latlng = new google.maps.LatLng(39.2411, -120.0233);
 			
 			
 		var mapOptions = {
