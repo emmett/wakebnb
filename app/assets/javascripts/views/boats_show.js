@@ -1,6 +1,6 @@
 WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 	tagName: "container boats",
-	className: "boats col-md-6",
+	className: "boats",
 	template: JST["boats/show"],
 	
 	events: {
