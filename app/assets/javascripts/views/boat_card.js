@@ -1,5 +1,5 @@
 WAKEbnb.Views.BoatsCardShow = Backbone.View.extend({
-	className: "col-lg-4 col-md-6 col-sm-12 container boat-profile",
+	className: "col-lg-4 col-md-6 col-sm-12 container boat-profile animated fadeIn",
 	template: JST["boats/card"],
 	
 	attributes: function(){
