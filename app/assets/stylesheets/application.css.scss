@@ -93,8 +93,7 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	top: 0;
-	bottom: 0;
-	
+	bottom: 0;	
 }
 
 .photo{
@@ -114,7 +113,9 @@
 	z-index: 0;
 	position: absolute;
 	left: 3%;
-	bottom: 0px;
+	bottom: -5px;
+	border: 2px solid white;
+	border-radius: 25px;
 	background-color: #565a5c;
 	color: white;
 	margin: 0px;
@@ -130,12 +131,12 @@
 	position: absolute;
 	right: 0px;
 	top: 10px;
-	background-color: #565a5c;
+	background-color:  #565a5c;
 	color: white;
 	margin: 0px;
 	padding: 7px 10px;
 	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 14px;
+	font-size: 20px;
 	line-height: 1.43;
 	-webkit-font-smoothing: antialiased;	
 }
