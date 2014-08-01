@@ -75,12 +75,17 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 	},
 		
 	addMarker: function (location, draggable) {
-		var image = '/assets/images/glyphicons/anchor.png'
+		var image = {
+			url: 'http://tutorialforlinux.com/wp-content/plugins/visual-editor-custom-buttons/js/icons/anchor.png',
+			size: new google.maps.Size(20,20),
+			origin: new google.maps.Point(0,0),
+			anchor: new google.maps.Point(10,20)
+		}
 		var marker = new google.maps.Marker({
 			draggable: draggable,
 			position: location,
 			map: WAKEbnb.map,
-			image: image			
+			icon: image			
 		});
 		
 		this.markers.push(marker);
