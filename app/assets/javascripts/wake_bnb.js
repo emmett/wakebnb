@@ -5,9 +5,11 @@ window.WAKEbnb = {
   Routers: {},
   initialize: function() {
 		
-		new WAKEbnb.Routers.AppRouter();		
 		
 		WAKEbnb.mapView = new WAKEbnb.Views.MapShow();
+		new WAKEbnb.Routers.AppRouter();		
+		
+		
 		
 
 		Backbone.history.start();

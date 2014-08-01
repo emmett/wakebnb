@@ -58,6 +58,10 @@ WAKEbnb.Routers.AppRouter = Backbone.Router.extend({
 		$('#main').html(view.render().$el);
 		
 		this.currentView = view;
+		
+		if (view.onRender) {
+			view.onRender();
+		}
 	}
 
 })

@@ -22,6 +22,7 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 			
 			
 		google.maps.event.addListenerOnce(WAKEbnb.map, 'tilesloaded', function(){
+			WAKEbnb.mapView.loaded = true;
 			WAKEbnb.mapView.oldCenter = WAKEbnb.map.center;			
 			WAKEbnb.mapView.offsetCenter(WAKEbnb.map.center, (-.25 * $( window ).width()), 0)	
 		})
@@ -51,9 +52,6 @@ WAKEbnb.Views.MapShow = Backbone.View.extend({
 				}
 			});
 		}
-		
-			
-		
 	},
 		
 	offsetCenter: function(latlng, offsetx, offsety) {

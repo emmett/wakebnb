@@ -43,12 +43,28 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 	
 	initialize: function() {
 		this.listenTo(this.model, "sync", this.render);	
+		this.listenTo(this.model, "sync", this.setMap);
+	},
+	
+	setMap: function() {
+		var that = this
+		var onLoad = function(){
+			var loc = new google.maps.LatLng(that.model.get('latitude'), that.model.get('longitude'))
+			var width = -.25 * $( window ).width();
+			WAKEbnb.mapView.addMarker(loc);
+	
+			WAKEbnb.mapView.offsetCenter(loc, width, 0);
+		};
+		
+		if (WAKEbnb.mapView.loaded){
+			onLoad();
+		} else {
+				google.maps.event.addListenerOnce(WAKEbnb.map, 'tilesloaded', onLoad);
+		}
 	},
 	
 	render: function () {
 		WAKEbnb.mapView.deleteMarkers()
-		var width = -1 * $( window ).width();
-		var loc = new google.maps.LatLng(this.model.get('latitude'), this.model.get('longitude'))
 		
 		var renderedContent = this.template({
 			boat: this.model
@@ -56,7 +72,6 @@ WAKEbnb.Views.BoatsShow = Backbone.View.extend({
 		
 		
 		this.$el.html(renderedContent);
-		WAKEbnb.mapView.addMarker(loc)
 		this.initializeDatePicker();
 		
 		return this;	

@@ -8,7 +8,6 @@ $(function(){
 	$('#signin-form').on('submit', function(event){
 		event.preventDefault();
 		var formData = $(event.currentTarget).serializeJSON();
-		debugger
 		$.ajax({
 			url: "session",
 			type: "post",
