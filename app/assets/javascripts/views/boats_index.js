@@ -34,11 +34,12 @@ WAKEbnb.Views.BoatsIndex = Backbone.CompositeView.extend({
 		})
 		
 		this.addSubview(".boats-list", boatCardView);
-		this.listenTo(boatCardView, "remove", this.removeSubview.bind(this, ".boats-list"))
+		this.listenTo(boatCardView, "remove", this.removeBoatView)
 	},
 	
-	removeBoatView: function() {
-		
+	removeBoatView: function(boatCardView) {
+		boatCardView.addClass("fadeOut")
+		this.removeSubview(".boats-list", boatCardView)
 	},
 	
 	resetBoatView: function () {
