@@ -1,5 +1,5 @@
 WAKEbnb.Views.BoatsIndex = Backbone.CompositeView.extend({
-	className: "boats-index col-md-6",
+	className: "boats-index col-sm-6 col-xs-offset-8",
 	template: JST["boats/index"],
 	
 	events: {
