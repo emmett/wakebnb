@@ -53,7 +53,7 @@ b4 = u3.boats.create(
 	boat_photo: File.open('public/seeds/seals.jpg')
 	)
 b5 = u3.boats.create(
-	title: "USS Refridgerator",
+	title: "USS Refrigerator",
 	description: "Great Gas Mileage",
 	latitude: 37.832544,
 	longitude:  -122.468714,
