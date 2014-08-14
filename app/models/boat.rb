@@ -26,7 +26,7 @@ class Boat < ActiveRecord::Base
 		:styles  => { :big  => "470X350#" },
 		:bucket => ENV['AWS_PROD_BUCKET']
 	else
-		has_attached_file :boat_photo
+		has_attached_file :boat_photo,
 		:bucket => ENV['AWS_DEV_BUCKET']
 	end
 	
