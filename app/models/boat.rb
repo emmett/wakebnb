@@ -23,21 +23,9 @@ class Boat < ActiveRecord::Base
 	
 	if Rails.env.production?
 		has_attached_file :boat_photo, 
-		:styles  => { :big  => "470X350#" },
-		:storage  =>  :s3,
-		:s3_credentials => {
-			:access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-			:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-		},
-		:bucket => ENV['AWS_PROD_BUCKET']
+		:styles  => { :big  => "470X350#" }
 	else
-		has_attached_file :boat_photo,
-		:storage  =>  :s3,
-		:s3_credentials => {
-			:access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-			:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-		},
-		:bucket => ENV['AWS_DEV_BUCKET']
+		has_attached_file :boat_photo
 	end
 	
 	validates_attachment_content_type(
